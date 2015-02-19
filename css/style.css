@@ -268,10 +268,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	top: 60px;
 }
 .top-bar .logo span {
-	background: url("../images/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-	background-position: 0 0;
 	display: inline-block;
-	height: 40px;
 	padding: 10px 0;
 	text-transform: uppercase;
 	width: 220px;
@@ -279,12 +276,10 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	-moz-transition: all 0.001s ease-in-out 0s;
 	-o-transition: all 0.001s ease-in-out 0s;
 	transition: all 0.001s ease-in-out 0s;
-}
-.top-bar .logo span {
 	color: #FFFFFF;
-	font-size: 26px;
+	font-size: 36px;
 	font-weight: 700;
-	line-height: 20px;
+	line-height: 100%;
 	padding: 0px;
 }
 .top-bar .logo span:hover {
@@ -301,7 +296,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	width: auto;
 	float: right;
 	position: relative;
-	top: 60px;
+	top: 87px;
 }
 /* Navigation */
 .navbar {
@@ -346,13 +341,12 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	height: 70px;
 }
 .top-bar.alt .logo {
-	top: 15px;
+	top: 10px;
 }
 .top-bar.alt .logo span {
-	background: url("../images/logo-hover.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	font-size: 24px;
+	line-height: 100%;
 	text-shadow: none;
-}
-.top-bar.alt .logo span {
 	color: #2C3840;
 	text-shadow: none;
 }
@@ -395,7 +389,7 @@ nav select {
 	padding: 0;
 }
 #about, #register, #speakers, #schedule, #workshops, #venue, #sponsors, #news, #twitter-feed, #contact, #newsletter {
-	padding: 100px 0 150px;
+	padding: 50px 0;
 	-webkit-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	-moz-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
@@ -458,7 +452,6 @@ footer {
 	color: #E1E4E5;
 	font-size: 14px;
 	font-weight: 100;
-	height: 200px;
 	padding: 20px 0;
 }
 footer img {
@@ -820,7 +813,7 @@ a.instagram:hover {
 	text-transform: none;
 }
 .jumbotron h2 {
-	font-size: 60px;
+	font-size: 48px;
 	line-height: 1;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -852,13 +845,15 @@ a.instagram:hover {
 	padding: 0 5px;
 }
 .jumbotron a.btn {
-	display: block;
+	display: inline-block;
+	font-family: 'Roboto Slab Bold', serif;
+	font-size: 36px;
 	font-weight: bold;
 	letter-spacing: 2px;
 	line-height: 30px;
 	margin: 20px auto 0;
 	text-transform: uppercase;
-	width: 170px;
+	padding: 18px 24px;
 }
 /* Modal */
 

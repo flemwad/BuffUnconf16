@@ -108,7 +108,7 @@ $(document).ready(function () {
 	
 	// Countdown //
 	$('#countdown').countdown({
-		until: new Date(2014, 10 - 1, 9), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
+		until: new Date(2015, 4 - 1, 18, 9), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
 		// or numeric for seconds offset, or string for unit offset(s): 
 		// 'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds 
 		// until: '-1m +1d', for demo
@@ -119,7 +119,7 @@ $(document).ready(function () {
 		format: 'dHMS', // Format for display - upper case for always, lower case only if non-zero,
 		// 'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds
 		alwaysExpire: true, // True to trigger onExpiry even if never counted down 
-		onExpiry: liftOff // Callback when the countdown expires - 
+		// onExpiry: liftOff // Callback when the countdown expires - 
 		// receives no parameters and 'this' is the containing division 
 	});
 	// Functions if countdown timer runs out:
@@ -182,7 +182,7 @@ $(document).ready(function () {
 	
 	// Google Map //
 	$('#map_canvas').gmap({
-		'center': new google.maps.LatLng(40.77288, -73.98299), // Change this to your desired latitude and longitude
+		'center': new google.maps.LatLng(42.896295, -78.868882), // Change this to your desired latitude and longitude
 		'zoom': 17,
 		'mapTypeControl': false,
 		'navigationControl': false,
