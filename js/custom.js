@@ -108,11 +108,11 @@ $(document).ready(function () {
 	
 	// Countdown //
 	$('#countdown').countdown({
-		until: new Date(2015, 4 - 1, 18, 9), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
+		until: new Date(2015, 3, 18, 9, 0, 0), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
 		// or numeric for seconds offset, or string for unit offset(s): 
 		// 'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds 
 		// until: '-1m +1d', for demo
-		timezone: -4, // The timezone (hours or minutes from GMT) for the target times, or null for client local 
+		timezone: -5, // The timezone (hours or minutes from GMT) for the target times, or null for client local 
 		layout: '{d<}<div class="span3"><div class="digit-container">{dn}<span class="label-container">{dl}</span></div></div>{d>}{h<}<div class="span3"><div class="digit-container">{hn}<span class="label-container">{hl}</span></div></div>{h>}{m<}<div class="span3"><div class="digit-container">{mn}<span class="label-container">{ml}</span></div></div>{m>}{s<}<div class="span3"><div class="digit-container">{sn}<span class="label-container">{sl}</span></div></div>{s>}',
 		timeSeparator: '', // Separator for time periods 
 		isRTL: false, // True for right-to-left languages, false for left-to-right 
