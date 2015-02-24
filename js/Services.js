@@ -3,11 +3,11 @@
 angular
 .module('services', [])
 .constant('FBURL', 'https://buffalo-unconference.firebaseio.com/')
-.constant('PROFILESURL', 'https://buffalo-unconference.firebaseio.com/profiles')
-.service('$global', ['$rootScope', '$firebaseAuth', 'FBURL', 'PROFILESURL', function ($rootScope, $firebaseAuth, FBURL, PROFILESURL) {
+.constant('USERSURL', 'https://buffalo-unconference.firebaseio.com/users')
+.service('$global', ['$rootScope', '$firebaseAuth', 'FBURL', 'USERSURL', function ($rootScope, $firebaseAuth, FBURL, USERSURL) {
     
     this.ref = new Firebase(FBURL);
-    this.profilesRef = new Firebase(PROFILESURL);
+    this.usersRef = new Firebase(USERSURL);
     
     this.auth = $firebaseAuth(this.ref);
     this.isLoggedIn = angular.isObject(this.auth.$getAuth()) ? true : false;

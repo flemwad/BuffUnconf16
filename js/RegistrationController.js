@@ -8,8 +8,8 @@ angular
     '$global',
     '$window',
     'FBURL',
-    'PROFILESURL',
-function ($scope, $firebase, $global, $window, FBURL, PROFILESURL) {
+    'USERSURL',
+function ($scope, $firebase, $global, $window, FBURL, USERSURL) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
     
@@ -29,7 +29,7 @@ function ($scope, $firebase, $global, $window, FBURL, PROFILESURL) {
                 var twit = authData.twitter;
                 var cache = twit.cachedUserProfile;
                 
-                var user = $global.profilesRef.child(twit.id.toString());
+                var user = $global.usersRef.child(authData.uid);
                 
                 user.set({
                     displayName: angular.isUndefined(twit.displayName) ? '' : twit.displayName,
