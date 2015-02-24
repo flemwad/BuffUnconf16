@@ -20,33 +20,26 @@ function ($scope, $firebase, $global, $window, FBURL, PROFILESURL) {
     };
     
     $scope.registerTwitterPopup = function () {
-        $global.ref.authWithOAuthPopup("twitter", function(error, authData) {
+        $global.ref.authWithOAuthPopup('twitter', function(error, authData) {
             if (error) {
-                alert("Twitter login failed!");
+                alert('Twitter login failed!');
             } 
             else {
                 //console.log("Authenticated successfully with payload:", authData);
                 var twit = authData.twitter;
                 var cache = twit.cachedUserProfile;
                 
-                var prof = $global.ref.child('profiles');
-                var user = prof.child(twit.id.toString());
-                
-                var desc = angular.isUndefined(cache.description) ? null : cache.description;
-                var loc = angular.isUndefined(cache.location) ? null : cache.location;
-                var url = angular.isUndefined(cache.url) ? null : cache.url;
-                var profbannerurl = angular.isUndefined(cache.profile_banner_url) ? null : cache.profile_banner_url;
-                var profimgurl = angular.isUndefined(cache.profile_image_url_https) ? null : cache.profile_image_url_https;
+                var user = $global.profilesRef.child(twit.id.toString());
                 
                 user.set({
-                    displayName: twit.displayName,
-                    username: twit.username,
-                    description: desc,
-                    location: loc,
-                    url: url,
+                    displayName: angular.isUndefined(twit.displayName) ? '' : twit.displayName,
+                    username: angular.isUndefined(twit.username) ? '' : twit.username,
+                    description: angular.isUndefined(cache.description) ? '' : cache.description,
+                    location: angular.isUndefined(cache.location) ? '' : cache.location,
+                    url: angular.isUndefined(cache.url) ? '' : cache.url,
                     imgs: {
-                        profile_banner_url: profbannerurl,
-                        profile_image_url: profimgurl
+                        profile_banner_url: angular.isUndefined(cache.profile_banner_url) ? '' : cache.profile_banner_url,
+                        profile_image_url: angular.isUndefined(cache.profile_image_url_https) ? '' : cache.profile_image_url_https
                     },
                     talk: {
                         approved: false,
