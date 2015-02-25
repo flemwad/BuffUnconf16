@@ -1,22 +1,71 @@
 'use strict'
 
 angular
-.module('registration-controller', [])
-.controller('RegistrationController',
+.module('header-controller', [])
+.controller('HeaderController',
 [   '$scope',
     '$firebase',
     '$global',
     '$window',
+    'templateCompiler',
     'FBURL',
     'USERSURL',
-function ($scope, $firebase, $global, $window, FBURL, USERSURL) {
+function ($scope, $firebase, $global, $window, templateCompiler, FBURL, USERSURL) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
-    
     $scope.sync = $firebase($global.ref);
+    
+    $scope.email = '';
+    $scope.password = '';
     
     $scope.doneRegister = function () {
         $window.location.reload();
+    };
+    
+    $scope.normalRegister = function (email, password) {
+        $global.ref.createUser({
+            email    : email,
+            password : password
+        }, 
+        function(error, userData) {
+            if (error) {
+                console.log("Error creating user:", error);
+            } 
+            else {
+                console.log("Successfully created user account with uid:", userData.uid);
+                $scope.normalLogin($scope.email, $scope.password, true);
+            }
+        });        
+    };
+    
+    $scope.normalLogin = function (email, password, afterRegister) {
+        $global.ref.authWithPassword({
+            email    : email,
+            password : password
+        }, 
+        function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } 
+            else {
+                console.log("Authenticated successfully with payload:", authData);
+                
+                if(afterRegister) {
+                }
+                
+                $scope.email = '';
+                $scope.password = '';
+                    
+                $scope.doneRegister();
+            }
+        });
+    };
+    
+    $scope.openRegisterModal = function () {
+        bootbox.dialog({
+                title: 'BUFFALO UNCONFERENCE REGISTRATION',
+                message: templateCompiler.getCompiledHTML($scope, 'register-modal.html')
+        });
     };
     
     $scope.registerTwitterPopup = function () {
@@ -26,6 +75,8 @@ function ($scope, $firebase, $global, $window, FBURL, USERSURL) {
             } 
             else {
                 //console.log("Authenticated successfully with payload:", authData);
+                bootbox.hideAll();
+                
                 var twit = authData.twitter;
                 var cache = twit.cachedUserProfile;
                 
@@ -42,6 +93,7 @@ function ($scope, $firebase, $global, $window, FBURL, USERSURL) {
                         profile_image_url: angular.isUndefined(cache.profile_image_url_https) ? '' : cache.profile_image_url_https
                     },
                     talk: {
+                        submitted: false,
                         approved: false,
                         topic: '',
                         description: '',

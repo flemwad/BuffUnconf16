@@ -4,7 +4,8 @@ angular
 .module('buffaloUnconference', [
     'firebase',
     'services',
-    'registration-controller'
+    'header-controller',
+    'templates'
 ])
 .controller('AppController', 
 [
@@ -13,15 +14,6 @@ angular
 function ($scope, $global) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
-    
-    $scope.jumboBtnValue = function () {
-        if (!$scope.isLoggedIn) {
-            return 'Subscribe & Register';
-        }
-        else {
-            return 'Subscribe';
-        }
-    };
     
 }]) //end controller
 .run(function () {
