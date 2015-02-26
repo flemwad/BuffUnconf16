@@ -7,19 +7,57 @@ angular
     '$firebase',
     '$global',
     '$window',
+    'UserService',
     'templateCompiler',
     'FBURL',
     'USERSURL',
-function ($scope, $firebase, $global, $window, templateCompiler, FBURL, USERSURL) {
+function ($scope, $firebase, $global, $window, UserService, templateCompiler, FBURL, USERSURL) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
-    $scope.sync = $firebase($global.ref);
-    
+    $scope.userObj = null;
+    $scope.talkObj = null;
     $scope.email = '';
     $scope.password = '';
     
     $scope.doneRegister = function () {
         $window.location.reload();
+    };
+    
+    $scope.getUserObject = function () {
+        $scope.userObj = UserService($global.uid);
+        
+        $scope.userObj.$loaded().then(function() { //success callback
+            $scope.talkObj = $scope.userObj.talk;
+            if(!$scope.isLoggedIn || $scope.talkObj.attendOnly || ($scope.talkObj.submitted && $scope.talkObj.topic.length > 0 && $scope.talkObj.topic.description)) return;
+            $scope.showLoginModifyModal();
+        },
+        function () { //fail callback
+        });
+    };
+    
+    $scope.showLoginModifyModal = function () {
+        var modalHTML = $global.isTwitterLogin ? 'mod-user-twitter-modal.html' : 'mod-user-simple-modal.html';
+        
+        bootbox.dialog({
+            title: 'MODIFY YOUR TALK',
+            message: templateCompiler.getCompiledHTML($scope, modalHTML),
+            buttons: {
+                success: {
+                    label: "Save",
+                    className: "btn btn-success",
+                    callback: function() {
+
+                    }
+                },
+                cancel: {
+                    label: "Cancel",
+                    className: "btn btn-danger",
+                    callback: function() {
+
+                    }
+                }
+            }
+        });
     };
     
     $scope.normalRegister = function (email, password) {
@@ -104,4 +142,6 @@ function ($scope, $firebase, $global, $window, templateCompiler, FBURL, USERSURL
         });
     };
     
+    
+    $scope.getUserObject();
 }]);

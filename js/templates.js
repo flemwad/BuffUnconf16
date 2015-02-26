@@ -26,12 +26,18 @@ angular.module('templates', [])
                         "</div>\n" +
                         "<div class=\"form-group\">\n" +
                             "<button type=\"submit\" class=\"btn btn-success\" ng-click=\"normalRegister(email, password)()\" ng-disabled=\"registerForm.$invalid\">Register</button>\n" +
-                            "<div>\n" +
-                                "<button type=\"submit\" class=\"btn btn-success\" ng-click=\"normalLogin(email, password, false)()\" ng-disabled=\"registerForm.$invalid\"> Login</button>\n" +
-                            "</div>\n" + 
+                            "<button type=\"submit\" class=\"btn btn-success\" ng-click=\"normalLogin(email, password, false)()\" ng-disabled=\"registerForm.$invalid\"> Login</button>\n" +
                         "</div>\n" +
                     "</ng-form>\n" +
                 "</div>\n" +
+            "</div>\n" +
+        "</div>\n"
+    );
+    
+    $templateCache.put('mod-user-twitter-modal.html',             
+        "<div class=\"container\">\n" +
+            "<div class=\"row\">\n" +
+                "Twitter - {{talkObj.submitted.toString()}} \n" +
             "</div>\n" +
         "</div>\n"
     );
