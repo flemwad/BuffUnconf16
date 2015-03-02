@@ -43,10 +43,8 @@
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
 								<li><a href="#newsletter">Newsletter</a></li>
-								<li>
-                                    <button id="register-button" class="btn btn-md btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()">Register</i></button>
-                                    <button id="modify-button" title="Modify Your Talk" class="btn btn-md btn-primary" ng-hide="!isLoggedIn" ng-click="showLoginModifyModal()"><i class="fa fa-pencil-square-o"></i></button>
-                                </li>
+                                <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
+								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()"><i class="fa fa-pencil-square-o"></i></a></li>
 							</ul>
 						</div>
 					</nav>
@@ -210,6 +208,7 @@
 <!--Our js files-->
 <script type="text/javascript" src="js/Services.js"></script>    
 <script type="text/javascript" src="js/templates.js"></script>
+<script type="text/javascript" src="js/ModifyUserController.js"></script>    
 <script type="text/javascript" src="js/HeaderController.js"></script>
     
 <script type="text/javascript" src="js/app.js"></script>

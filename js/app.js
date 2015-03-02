@@ -5,6 +5,7 @@ angular
     'firebase',
     'services',
     'header-controller',
+    'modify-user-controller',
     'templates'
 ])
 .controller('AppController', 
