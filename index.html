@@ -44,7 +44,7 @@
 							<ul id="mainnav" class="nav">
 								<li><a href="#newsletter">Newsletter</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
-								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()"><i class="fa fa-pencil-square-o"></i></a></li>
+								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">My Profile</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -70,7 +70,7 @@
 								BNMC Innovation Center<br>
 								FREE Admittance
 							</h2>
-							<a href="#newsletter" class="btn btn-lg btn-primary">Subscribe</a>
+							<a href="#" class="btn btn-lg btn-primary" ng-click="openRegisterModal()">Register</a> <a href="#newsletter" class="btn">Subscribe</a> 
 						</div>
 						<!-- end span12 --> 
 					</div>

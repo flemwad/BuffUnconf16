@@ -51,7 +51,7 @@ function ($scope, $firebase, $global, $window, $timeout, UserService, templateCo
             buttons: {
                 attendOnly: {
                     label: "Attend Only",
-                    className: "btn btn-info",
+                    className: "btn btn-info pull-left",
                     callback: function() {
                         //let ModifyUserController know about our bootbox descision...
                         //kinda hate this.

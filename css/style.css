@@ -7,13 +7,21 @@
 	GENERAL
 /*  -----------------------------------------------------   /*
 /**/
+html {
+	min-height: 100%;
+}
 body {
 	margin: 0;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	line-height: 24px;
 	color: #393e46 !important;
-	background-color: #ffffff;
+	min-height: 100%;
+	background:url(../images/backgrounds/buffalo3.jpg) center center no-repeat fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 a {
 	color: #48A3A6;
@@ -377,11 +385,11 @@ nav select {
 
 /* Sections */
 #intro {
-	background:url(../images/backgrounds/intro.jpg) center center no-repeat fixed;
+	/*background:url(../images/backgrounds/buffalo3.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 	color: white;
 	min-height: 300px;
 	height: 660px;
@@ -398,11 +406,11 @@ nav select {
 	background: none repeat scroll 0 0 #FFFFFF;
 }
 #register {
-	background: /*#7bc1a1*/url(../images/backgrounds/intro.jpg) center center no-repeat fixed;
+	/*background: /*#7bc1a1*/url(../images/backgrounds/buffalo3.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 	padding: 60px 0;
 }
 #speakers {
@@ -415,12 +423,13 @@ nav select {
 	background: #F2BC47;
 }
 #venue {
-	background: url(../images/backgrounds/venue.jpg) center center no-repeat fixed;
+	/*background: url(../images/backgrounds/venue.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 	background-color: #4C5D67;
+	background-color: rgba(76,93,103,.92);
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -808,6 +817,7 @@ a.instagram:hover {
 	font-size: 100px;
 	font-weight: 800;
 	line-height: 1;
+	color: #2C3840;
 	margin: 10px 0 20px;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	text-transform: none;
@@ -816,6 +826,7 @@ a.instagram:hover {
 	font-size: 48px;
 	line-height: 1;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	color: #2C3840;
 }
 .jumbotron h3 {
 	font-size: 48px;
@@ -851,7 +862,7 @@ a.instagram:hover {
 	font-weight: bold;
 	letter-spacing: 2px;
 	line-height: 30px;
-	margin: 20px auto 0;
+	margin: 20px 10px 0;
 	text-transform: uppercase;
 	padding: 18px 24px;
 }
@@ -1416,6 +1427,15 @@ a.instagram:hover {
 	border-top: medium none;
 	box-shadow: none;
 }
+
+.modal .container {
+	width: auto;
+}
+
+.modal .span4 input[type=text], .modal .span4 textarea {
+	width: 280px;
+}
+
 /*  -----------------------------------------------------   /*
 	TIMELINE
 /*  -----------------------------------------------------   /*
@@ -1647,6 +1667,13 @@ a.instagram:hover {
 	 line-height: 1;
 	}
 }
+@media (min-width: 960px) {
+	.modal {
+		width: 720px;
+		margin-left: -360px;
+	}
+}
+
 @media only screen and (min-width: 960px) and (max-width: 1199px) {
 	 .jumbotron h1 {
 	 font-size: 94px !important;
