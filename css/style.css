@@ -817,6 +817,7 @@ a.instagram:hover {
 	font-size: 100px;
 	font-weight: 800;
 	line-height: 1;
+	color: #2C3840;
 	margin: 10px 0 20px;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	text-transform: none;
@@ -825,6 +826,7 @@ a.instagram:hover {
 	font-size: 48px;
 	line-height: 1;
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	color: #2C3840;
 }
 .jumbotron h3 {
 	font-size: 48px;
@@ -860,7 +862,7 @@ a.instagram:hover {
 	font-weight: bold;
 	letter-spacing: 2px;
 	line-height: 30px;
-	margin: 20px auto 0;
+	margin: 20px 10px 0;
 	text-transform: uppercase;
 	padding: 18px 24px;
 }
@@ -1425,6 +1427,15 @@ a.instagram:hover {
 	border-top: medium none;
 	box-shadow: none;
 }
+
+.modal .container {
+	width: auto;
+}
+
+.modal .span4 input[type=text], .modal .span4 textarea {
+	width: 280px;
+}
+
 /*  -----------------------------------------------------   /*
 	TIMELINE
 /*  -----------------------------------------------------   /*
@@ -1656,6 +1667,13 @@ a.instagram:hover {
 	 line-height: 1;
 	}
 }
+@media (min-width: 960px) {
+	.modal {
+		width: 720px;
+		margin-left: -360px;
+	}
+}
+
 @media only screen and (min-width: 960px) and (max-width: 1199px) {
 	 .jumbotron h1 {
 	 font-size: 94px !important;
