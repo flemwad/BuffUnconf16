@@ -8,11 +8,12 @@ angular
     '$global',
     '$window',
     '$timeout',
+    '$rootScope',
     'UserService',
     'templateCompiler',
     'FBURL',
     'USERSURL',
-function ($scope, $firebase, $global, $window, $timeout, UserService, templateCompiler, FBURL, USERSURL) {
+function ($scope, $firebase, $global, $window, $timeout, $rootScope, UserService, templateCompiler, FBURL, USERSURL) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
     $scope.email = '';
@@ -177,6 +178,11 @@ function ($scope, $firebase, $global, $window, $timeout, UserService, templateCo
                 message: templateCompiler.getCompiledHTML($scope, 'register-modal.html')
         });
     };
+    
+    //listen for a broadcast from AppController for Register Jumbotron click
+    $rootScope.$on('appRegisterClick', function () {
+        $scope.openRegisterModal();
+    });
     
     $scope.registerTwitterPopup = function () {
         $global.ref.authWithOAuthPopup('twitter', function(error, authData) {

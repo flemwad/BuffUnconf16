@@ -38,7 +38,7 @@ function ($scope, $firebase, $global, $timeout, UserService) {
     };
     
     $scope.save = function () {
-        if(angular.isObject($scope.userObj) && $scope.userObj.topic !== '' && $scope.userObj.description !== '') {
+        if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.talkObj.topic !== '' && $scope.talkObj.description !== '') {
             $scope.talkObj.attendOnly = false;
             $scope.talkObj.submitted = true;
             $scope.userObj.$save();

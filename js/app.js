@@ -11,10 +11,16 @@ angular
 .controller('AppController', 
 [
     '$scope', 
-    '$global', 
-function ($scope, $global) {
+    '$global',
+    '$rootScope',
+function ($scope, $global, $rootScope) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
+    
+    $scope.openRegisterModal = function () {
+        //tell our HeaderController the user clicked Register on the jumbotron
+        $rootScope.$broadcast('appRegisterClick');
+    };
     
 }]) //end controller
 .run(function () {
