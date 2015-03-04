@@ -275,6 +275,8 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	position: relative;
 	top: 60px;
 }
+
+
 .top-bar .logo span {
 	display: inline-block;
 	padding: 10px 0;
@@ -927,13 +929,13 @@ a.instagram:hover {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border: 4px solid #FFFFFF;
+	border: 4px solid #2C3840;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-o-border-radius: 50%;
 	border-radius: 50%;
-	color: #FFFFFF;
+	color: #2C3840;
 	display: block;
 	font-size: 40px;
 	font-weight: 600;
@@ -956,7 +958,7 @@ a.instagram:hover {
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;
 	border-radius: 6px;
-	color: #FFFFFF;
+	color: #2C3840;
 	display: block;
 	font-size: 14px;
 	font-weight: 200;
@@ -1436,6 +1438,10 @@ a.instagram:hover {
 	width: 280px;
 }
 
+.modal h3 {
+	margin-top: 0;
+}
+
 /*  -----------------------------------------------------   /*
 	TIMELINE
 /*  -----------------------------------------------------   /*
@@ -1611,9 +1617,15 @@ a.instagram:hover {
 }
 
 
-/*  -----------------------------------------------------   /*
+/*  -----------------------------------------------------   *
 	RESPONSIVE
-/*  -----------------------------------------------------   /*
+/*  -----------------------------------------------------   */
+
+@media (min-width: 1200px) {
+	.modal .span4 {
+		width: 300px;
+	}
+}
 
 /* 767px */
 @media (max-width: 980px) {
@@ -1621,7 +1633,9 @@ a.instagram:hover {
 	 top: 10px;
 	}
 	.top-bar.alt nav {
-	 top: 14px;
+	 	position: absolute;
+		top: 42px;
+		right: 15px;
 	}
 	.nav-collapse, .nav-collapse.collapse {
 	 background: none repeat scroll 0 0 #E7EBED;
@@ -1656,7 +1670,10 @@ a.instagram:hover {
 	 margin: 18px 0 0 !important;
 	}
 	.top-bar.alt .navbar .btn-navbar {
-	 margin: -25px 0 0 !important;
+	 	position: absolute;
+		top: 15px;
+		right: 15px;
+		margin: 0 !important;
 	}
 	 .jumbotron h1 {
 	 font-size: 90px;
@@ -1666,11 +1683,29 @@ a.instagram:hover {
 	 font-size: 46px;
 	 line-height: 1;
 	}
+
+	#intro, .jumbotron {
+		height: auto !important;
+	}
+	
+	.jumbotron {
+		padding-bottom: 50px;
+	}
+	
+	.jumbotron a.btn {
+		font-size: 24px;
+		line-height: 20px;
+	}
+
+	.modal {
+		position: absolute;
+	}
+	
 }
 @media (min-width: 960px) {
 	.modal {
-		width: 720px;
-		margin-left: -360px;
+		width: 660px;
+		margin-left: -330px;
 	}
 }
 
@@ -1946,9 +1981,6 @@ a.instagram:hover {
 	.navbar .btn-navbar {
 	 margin: 18px 0 0 !important;
 	}
-	.top-bar.alt .navbar .btn-navbar {
-	 margin: -25px 0 0 !important;
-	}
 	 .jumbotron {
 	 height: 365px !important;
 	 padding-top: 120px !important;
@@ -1975,21 +2007,6 @@ a.instagram:hover {
 	 height: 200px;
 	 padding: 20px 50px 0;
 	 width: 200px;
-	}
-}
-
-@media (max-width: 375px) {
-	.jumbotron h1 {
-	 font-size: 36px;
-	 margin: 36px 0 24px;
-	}
-	.jumbotron h2 {
-	 font-size: 24px;
-	 margin: 18px 0;
-	}
-	.jumbotron h3 {
-	 font-size: 21px;
-	 line-height: 1;
 	}
 }
 
@@ -2029,7 +2046,19 @@ a.instagram:hover {
 	 font-size: 18px;
 	 line-height: 1;
 	}
-	.navbar .btn-navbar, .top-bar nav {
-		margin-top: -25px !important;
+}
+
+@media (max-width: 375px) {
+	.jumbotron h1 {
+	 font-size: 36px;
+	 margin: 36px 0 24px;
+	}
+	.jumbotron h2 {
+	 font-size: 24px;
+	 margin: 18px 0;
+	}
+	.jumbotron h3 {
+	 font-size: 21px;
+	 line-height: 1;
 	}
 }

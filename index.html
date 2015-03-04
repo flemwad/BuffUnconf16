@@ -39,10 +39,11 @@
 				<a class="logo pull-left" href="#intro"><span>Buffalo Unconference</span></a>
                 <div class="navbar main-nav pull-right">
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-					<nav>
+					<nav class="hidden">
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
 								<li><a href="#newsletter">Newsletter</a></li>
+								<li><a href="#venue">Venue</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
 								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">My Profile</a></li>
 							</ul>
@@ -136,7 +137,7 @@
 	<div class="container" >
 		<div class="row">
 			<div id="countdown"></div>
-			<div class="span12 white register-box text-center">
+			<div class="span12 register-box text-center">
 				<h2 class="register-title">Until Buffalo's Tech Unconference</h2>
             </div>
 		</div>

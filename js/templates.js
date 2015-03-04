@@ -4,14 +4,16 @@ angular.module('templates', [])
     $templateCache.put('register-modal.html',             
         "<div class=\"container\">\n" +
             "<div class=\"row\">\n" +
-                "<div class=\"span3\">\n" +
-                    "<button id=\"register-twitter-button\" class=\"btn btn-md btn-info\" ng-click=\"registerTwitterPopup()\">Register With <i class=\"fa fa-twitter\"></i></button>\n" +
+                "<div class=\"span4\">\n" +
+                    "<h3>Register with Twitter</h3>" +
+					"<button id=\"register-twitter-button\" class=\"btn btn-md btn-info\" ng-click=\"registerTwitterPopup()\"><i class=\"fa fa-twitter\"></i> Register</button>\n" +
                 "</div>\n" +
                 "<div class=\"span1\">\n" +
                     "- or - \n" +
                 "</div>\n" +
                 "<div class=\"span3\">\n" +
-                    "<ng-form name=\"registerForm\" class=\"row-border\" novalidate>\n" +
+                    "<h3>Create Account</h3>" +
+					"<ng-form name=\"registerForm\" class=\"row-border\" novalidate>\n" +
                         "<div class=\"form-group\">\n" +
                             "<label class=\"control-label\">Email</label>\n" +
                             "<div>\n" +
