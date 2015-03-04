@@ -1704,8 +1704,8 @@ a.instagram:hover {
 }
 @media (min-width: 960px) {
 	.modal {
-		width: 660px;
-		margin-left: -330px;
+		width: 720px;
+		margin-left: -360px;
 	}
 }
 

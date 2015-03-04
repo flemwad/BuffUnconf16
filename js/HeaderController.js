@@ -204,7 +204,7 @@ function ($scope, $firebase, $global, $window, $timeout, $rootScope, UserService
                 user.$loaded().then(function() { //success callback
                     //if we already have info about the twitter user, 
                     //can't see a reason why we should waste the time updating him/her
-                    if(angular.equals('', user.displayName)) {
+                    if(!angular.isDefined(user.displayName) || angular.equals('', user.displayName)) {
                         user.email = '';
                         user.displayName = angular.isUndefined(twit.displayName) ? '' : twit.displayName,
                         user.username = angular.isUndefined(twit.username) ? '' : twit.username,

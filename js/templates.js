@@ -4,7 +4,7 @@ angular.module('templates', [])
     $templateCache.put('register-modal.html',             
         "<div class=\"container\">\n" +
             "<div class=\"row\">\n" +
-                "<div class=\"span4\">\n" +
+                "<div class=\"span3\">\n" +
                     "<h3>Register with Twitter</h3>" +
 					"<button id=\"register-twitter-button\" class=\"btn btn-md btn-info\" ng-click=\"registerTwitterPopup()\"><i class=\"fa fa-twitter\"></i> Register</button>\n" +
                 "</div>\n" +
