@@ -13,7 +13,7 @@ angular.module('templates', [])
                     "- or - \n" +
                 "</div>\n" +
                 "<div class=\"span3\">\n" +
-                    "<h3>Create Account</h3>" +
+                    "<h3>Simple Connect</h3>" +
 					"<ng-form name=\"registerForm\" class=\"row-border\" novalidate>\n" +
                         "<div class=\"form-group\">\n" +
                             "<label class=\"control-label\">Email</label>\n" +
@@ -34,7 +34,7 @@ angular.module('templates', [])
                     "</ng-form>\n" +
                 "</div>\n" +
             "</div>\n" +
-            "<div class=\"row\">\n" +
+            "<div class=\"row pull-right\">\n" +
                 "<div class=\"span3\">\n" +
                     "<span ng-if=\"invalidLogin\">Invalid username or password!</span>\n" +
                     "<span ng-if=\"invalidTwitRegistration\">Invalid Twitter registration!</span>\n" +
