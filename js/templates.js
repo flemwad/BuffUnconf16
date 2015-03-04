@@ -1,12 +1,13 @@
 angular.module('templates', [])
 .run(['$templateCache', function ($templateCache) {
+    'use strict';
 
     $templateCache.put('register-modal.html',             
         "<div class=\"container\">\n" +
             "<div class=\"row\">\n" +
                 "<div class=\"span4\">\n" +
-                    "<h3>Register with Twitter</h3>" +
-					"<button id=\"register-twitter-button\" class=\"btn btn-md btn-info\" ng-click=\"registerTwitterPopup()\"><i class=\"fa fa-twitter\"></i> Register</button>\n" +
+                    "<h3>Connect with Twitter</h3>" +
+					"<button id=\"register-twitter-button\" class=\"btn btn-md btn-info\" ng-click=\"registerTwitterPopup()\"><i class=\"fa fa-twitter\"></i> Connect</button>\n" +
                 "</div>\n" +
                 "<div class=\"span1\">\n" +
                     "- or - \n" +

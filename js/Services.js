@@ -21,7 +21,7 @@ angular
         this.isSimpleLogin = this.uid.indexOf('simple') > -1;
     }
     
-    console.dir(this.isLoggedIn);
+    //console.dir(this.isLoggedIn);
     
 }]) //end service
 .factory('UserService', ['$firebase', '$global', 'USERSURL', function($firebase, $global, USERSURL) {
