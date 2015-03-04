@@ -598,6 +598,35 @@ hr.divider-short {
 	border-radius: 6px;
 	color: #2C3840;
 }
+
+/*  -----------------------------------------------------   /*
+	SPEAKERS & ATTENDEES
+/*  -----------------------------------------------------   */
+
+.dudes ul {
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.dudes li {
+	display: inline-block;
+}
+
+.dudes .card {
+	position: absolute;
+	left: -999em;
+	padding: 10px;
+	background: #fff;
+	border: 5px solid #f1f1f1;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+
+.dudes li:hover .card {
+	left: auto;
+}
+
 /*  -----------------------------------------------------   /*
 	COLORS, IMAGE & ICONS CONTAINERS
 /*  -----------------------------------------------------   /*
