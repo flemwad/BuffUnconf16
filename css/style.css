@@ -52,6 +52,12 @@ sup {
 	padding: 0 0 0 1px;
 	text-transform: none;
 }
+/* Clearfix */
+.clearfix:after {
+	content: " ";
+	clear: both;
+	display: block;
+}
 /* Buttons */
 .btn {
 	border: none;
@@ -398,7 +404,7 @@ nav select {
 	margin: 0 auto;
 	padding: 0;
 }
-#about, #register, #speakers, #schedule, #workshops, #venue, #sponsors, #news, #twitter-feed, #contact, #newsletter {
+#about, #ticker, #speakers, #schedule, #workshops, #venue, #sponsors, #news, #twitter-feed, #contact, #newsletter {
 	padding: 50px 0;
 	-webkit-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	-moz-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
@@ -407,8 +413,8 @@ nav select {
 #about {
 	background: none repeat scroll 0 0 #FFFFFF;
 }
-#register {
-	/*background: /*#7bc1a1*/url(../images/backgrounds/buffalo3.jpg) center center no-repeat fixed;
+#ticker {
+	background: rgba(76,93,103,.92);
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -425,16 +431,7 @@ nav select {
 	background: #F2BC47;
 }
 #venue {
-	/*background: url(../images/backgrounds/venue.jpg) center center no-repeat fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
-	background-color: #4C5D67;
-	background-color: rgba(76,93,103,.92);
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+	background-color: #4c5d67;
 }
 #sponsors {
 	background: #E7EBED;
@@ -453,6 +450,7 @@ nav select {
 #newsletter {
 	background: #E7EBED;
 	padding: 60px 0;
+	display: none;
 }
 #map {
 	background: #4C5D67;
@@ -603,6 +601,10 @@ hr.divider-short {
 	SPEAKERS & ATTENDEES
 /*  -----------------------------------------------------   */
 
+.dudes {
+	position: relative;
+}
+
 .dudes ul {
 	list-style: none;
 	text-align: center;
@@ -610,21 +612,48 @@ hr.divider-short {
 	padding: 0;
 }
 
-.dudes li {
+.dudes li, .dudes a {
 	display: inline-block;
+}
+
+.dudes img {
+	border: 0;
 }
 
 .dudes .card {
 	position: absolute;
+	text-align: left;
 	left: -999em;
-	padding: 10px;
+	width: 480px;
 	background: #fff;
 	border: 5px solid #f1f1f1;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 
-.dudes li:hover .card {
-	left: auto;
+.dudes .card.open {
+	top: 30px;
+	left: 50%;
+	margin-left: -240px;
+}
+
+.card-title {
+	color: #fff;
+	padding: 10px 15px;
+	background: #4c5d67;
+}
+
+.card h3 {
+	font-size: 21px;
+	line-height: 100%;
+	margin: 0;
+}
+
+.card-title > :last-child, .card-body > :last-child {
+	margin-bottom: 0;
+}
+
+.card-body {
+	padding: 10px 15px;
 }
 
 /*  -----------------------------------------------------   /*
@@ -958,13 +987,13 @@ a.instagram:hover {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border: 4px solid #2C3840;
+	border: 4px solid #fff;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-o-border-radius: 50%;
 	border-radius: 50%;
-	color: #2C3840;
+	color: #fff;
 	display: block;
 	font-size: 40px;
 	font-weight: 600;
@@ -987,7 +1016,7 @@ a.instagram:hover {
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;
 	border-radius: 6px;
-	color: #2C3840;
+	color: #fff;
 	display: block;
 	font-size: 14px;
 	font-weight: 200;
@@ -999,7 +1028,8 @@ a.instagram:hover {
 	width: auto;
 }
 .register-title {
-	margin: 25px auto;
+	color: #fff;
+	margin: 25px auto 0 auto;
 }
 /* Schedule Section */
 .schedule-download {

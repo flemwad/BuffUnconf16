@@ -2,6 +2,17 @@
 
 // Javascripts //
 $(document).ready(function () {
+
+	// Attendees
+	$('.dudes .thumb').click(function(event) {
+		event.preventDefault();
+		$('.dudes.open').removeClass('open');
+		$(this).next('.card').addClass('open');
+	});
+	$('.dudes .close').click(function(event) {
+		event.preventDefault();
+		$('.dudes.open').removeClass('open');
+	});
 	
 	// Top Bar //
 	$('.top-bar nav').addClass('hidden');
@@ -65,9 +76,9 @@ $(document).ready(function () {
 	
 	// Flexslider
 	// Can also be used with $(document).ready()
-	$('.flexslider').flexslider({
-		animation: "slide"
-	});
+//	$('.flexslider').flexslider({
+//		animation: "slide"
+//	});
 	
 	// Tabs //
 	$('#schedule-tabs a').click(function (e) {
