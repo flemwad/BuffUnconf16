@@ -2,17 +2,6 @@
 
 // Javascripts //
 $(document).ready(function () {
-
-	// Attendees
-	$('.dudes .thumb').click(function(event) {
-		event.preventDefault();
-		$('.dudes.open').removeClass('open');
-		$(this).next('.card').addClass('open');
-	});
-	$('.dudes .close').click(function(event) {
-		event.preventDefault();
-		$('.dudes.open').removeClass('open');
-	});
 	
 	// Top Bar //
 	$('.top-bar nav').addClass('hidden');
