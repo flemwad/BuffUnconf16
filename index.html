@@ -44,8 +44,7 @@
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
 								<li><a href="#about">About</a></li>
-								<li><a href="mailto:clarkdever@gmail.com?subject=”Unconference">Contact</a></li>
-								<li><a href="#venue">Directions</a></li>
+								<li><a href="#venue">Contact</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
 								<li><a href="#speakers">Speakers</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
@@ -63,6 +62,7 @@
 	<div class="container" ng-controller="AppController">
 		<div class="row jumbotron">
 			<div class="span12 text-center">
+				<p class="info">Sponsored by AT&amp;T</p>
 				<h1>April 18, 2015</h1>
 				<h2>9:00 AM - 5:00 PM<br>
 					BNMC Innovation Center<br>
@@ -103,7 +103,7 @@
 									<div class="card-title">
                                     	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
-                                    	<p><a ng-href="{{attendee.url}}">@{{attendee.username}}</a></p>
+                                    	<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></p>
 										<p>{{attendee.description}}</p>
 									</div>
 									<div class="card-body">
@@ -216,34 +216,33 @@
 	<div class="container" ng-controller="AttendeeController">
 		<div class="row">
 			<div class="span12 hero-unit text-center">
-				<h2>Sponsors</h2>
+				<h2>Sponsored by AT&amp;T</h2>
 			</div>
 			<div class="span12 text-center">
-				<h3>Title</h3>
 				<a href="http://www.att.com/" target="_blank"><img src="images/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span12 text-center">
-				<h3>Silver</h3>
+				<h3>Additional Sponsors</h3>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.43north.org/" target="_blank"><img src="images/sponsors/43north.png" alt="43 North" class="sponsor-logo"></a>
+				<a href="http://www.43north.org/" target="_blank"><img src="images/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
 				<a href="http://digbuffalo.org/" target="_blank"><img src="images/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.s1search.com/" target="_blank"><img src="images/sponsors/selectone.png" alt="SelectOne Search" class="sponsor-logo"></a>
+				<a href="http://www.s1search.com/" target="_blank"><img src="images/sponsors/selectone_grey.png" alt="SelectOne Search" class="sponsor-logo"></a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span2"></div>
 			<div class="span4 text-center">
-				<a href="http://algonquinstudios.com/" target="_blank"><img src="images/sponsors/algonquin.png" alt="Algonquin Studios" class="sponsor-logo"></a>
+				<a href="http://algonquinstudios.com/" target="_blank"><img src="images/sponsors/algonquin_grey.png" alt="Algonquin Studios" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.z80labs.com/" target="_blank"><img src="images/sponsors/z80.png" alt="z80" class="sponsor-logo"></a>
+				<a href="http://www.z80labs.com/" target="_blank"><img src="images/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
 			</div>
 		</div>
 	</div>
@@ -257,8 +256,13 @@
 				<h2>Venue</h2>
 				<h3>BNMC Innovation Center</h3>
 				<p>640 Ellicott Street<br>
-				Buffalo, NY 14203<br>
-				United States</p>
+					Buffalo, NY 14203<br>
+					United States</p>
+				<h2>Contact</h2>
+				<p><b>Clark Dever</b><br>
+					<a href="tel:7168033213">716-803-3213</a><br>
+					<a href="mailto:clarkdever@gmail.com?subject=Unconference">clarkdever@gmail.com</a><br>
+					<a href="https://twitter.com/clarkdever" target="_blank">@clarkdever</a></p>
 			</div>
 			<div class="span6">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2922.8886974858115!2d-78.868882!3d42.896294999999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d3125bc9cd70f3%3A0x8caa00b3b3a7ddb!2sInnovation+Center-BNMC!5e0!3m2!1sen!2sus!4v1424315636708" width="800" height="300" frameborder="0" style="border:0;max-width:100%"></iframe>
@@ -273,7 +277,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12 text-center">
-				<div class="copyright">&copy; 2015 Buffalo Unconference &nbsp; <a href="mailto:clarkdever@gmail.com?subject=”Unconference">Contact</a></div>
+				<div class="copyright">&copy; 2015 Buffalo Unconference &nbsp; <a href="mailto:clarkdever@gmail.com?subject=Unconference">Contact</a></div>
 			</div>
 			<!-- end span12 --> 
 		</div>
