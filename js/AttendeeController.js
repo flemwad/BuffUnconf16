@@ -26,4 +26,17 @@ function ($scope, $firebase, $global, $timeout, AttendeeService) {
     $timeout(function() {
         $scope.init();
     }, 50);
+
+	
 }]);
+
+// Display attendee card
+function showCard(card) {
+	$('.card.open').removeClass('open');
+	card.next().addClass('open');
+}
+
+// Hide attendee card
+function closeCard() {
+	$('.card.open').removeClass('open');
+}

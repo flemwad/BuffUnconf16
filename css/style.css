@@ -335,7 +335,9 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	text-transform: uppercase;
 	text-shadow: none;
 }
-.top-bar .navbar .nav > li:last-child > a {
+.top-bar .navbar .nav > li > a#register-button {
+	color: #fff;
+	background: #EF7247;
 }
 .top-bar .navbar .nav > li > a:hover, .top-bar.alt .navbar .nav > li > a:hover {
 	color: #FFFFFF;
@@ -410,15 +412,11 @@ nav select {
 	-moz-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 }
-#about {
+#sponsors {
 	background: none repeat scroll 0 0 #FFFFFF;
 }
-#ticker {
-	background: rgba(76,93,103,.92);
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
+#ticker, #venue {
+	background: rgba(76,93,103,.8);
 	padding: 60px 0;
 }
 #speakers {
@@ -430,10 +428,7 @@ nav select {
 #workshops {
 	background: #F2BC47;
 }
-#venue {
-	background-color: #4c5d67;
-}
-#sponsors {
+#about {
 	background: #E7EBED;
 }
 #news {
@@ -546,10 +541,9 @@ hr.divider-short {
 	position: relative;
 	text-align: center;
 }
-.subheader h4 {
+.subheader h4, #sponsors h3 {
 	background-color: rgba(0, 0, 0, 0);
 	color: #48A3A6;
-	display: inline-block;
 	font-size: 16px;
 	font-weight: 700 !important;
 	line-height: 20px !important;
@@ -648,7 +642,12 @@ hr.divider-short {
 	margin: 0;
 }
 
-.card-title > :last-child, .card-body > :last-child {
+.card-title p {
+	color: #bbb;
+	margin: 3px 0 0 0;
+}
+
+.card-body > :last-child {
 	margin-bottom: 0;
 }
 
@@ -1116,7 +1115,8 @@ a.instagram:hover {
 	-webkit-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
-	width: 70%;
+/*	width: 70%;*/
+	padding: 20px 0;
 }
 .sponsor-logo:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";

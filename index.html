@@ -98,15 +98,15 @@
 					<ul>
 						<li ng-repeat="attendee in attendees">
                             <div ng-show="attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
                                 <div class="card">
 									<div class="card-title">
-                                    	<a href="#" class="close">x</a>
+                                    	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
                                     	<p><a ng-href="{{attendee.url}}">@{{attendee.username}}</a></p>
+										<p>{{attendee.description}}</p>
 									</div>
 									<div class="card-body">
-										<p>{{attendee.description}}</p>
 										<h4 ng-show="attendee.talk.submitted">{{attendee.talk.topic}}</h4>
 										<p ng-show="attendee.talk.submitted">{{attendee.talk.description}}</p>
 										<p ng-show="attendee.talk.attendOnly">I'm attending but not presenting</p>
@@ -114,10 +114,10 @@
                                 </div>
                             </div>
                             <div ng-show="!attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb"><img ng-src="images/photos/face01.jpg" height="48" width="48" alt=""></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="images/photos/face01.jpg" height="48" width="48" alt=""></a>
                                 <div class="card">
                                     <div class="card-title">
-										<a href="#" class="close">x</a>
+										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
                                     	<p>{{attendee.description}}</p>
 									</div>
@@ -212,7 +212,42 @@
 	</div>
 </section>
 
-
+<section id="sponsors">
+	<div class="container" ng-controller="AttendeeController">
+		<div class="row">
+			<div class="span12 hero-unit text-center">
+				<h2>Sponsors</h2>
+			</div>
+			<div class="span12 text-center">
+				<h3>Title</h3>
+				<a href="http://www.att.com/" target="_blank"><img src="images/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span12 text-center">
+				<h3>Silver</h3>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.43north.org/" target="_blank"><img src="images/sponsors/43north.png" alt="43 North" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://digbuffalo.org/" target="_blank"><img src="images/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.s1search.com/" target="_blank"><img src="images/sponsors/selectone.png" alt="SelectOne Search" class="sponsor-logo"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span4 text-center">
+				<a href="http://algonquinstudios.com/" target="_blank"><img src="images/sponsors/algonquin.png" alt="Algonquin Studios" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.z80labs.com/" target="_blank"><img src="images/sponsors/z80.png" alt="z80" class="sponsor-logo"></a>
+			</div>
+		</div>
+	</div>
+</section>
 
 <section id="venue" class="white">
 	<div class="container">
