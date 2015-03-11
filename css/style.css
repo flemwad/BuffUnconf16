@@ -52,6 +52,12 @@ sup {
 	padding: 0 0 0 1px;
 	text-transform: none;
 }
+/* Clearfix */
+.clearfix:after {
+	content: " ";
+	clear: both;
+	display: block;
+}
 /* Buttons */
 .btn {
 	border: none;
@@ -275,8 +281,6 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	position: relative;
 	top: 60px;
 }
-
-
 .top-bar .logo span {
 	display: inline-block;
 	padding: 10px 0;
@@ -329,7 +333,9 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 	text-transform: uppercase;
 	text-shadow: none;
 }
-.top-bar .navbar .nav > li:last-child > a {
+.top-bar .navbar .nav > li > a#register-button {
+	color: #fff;
+	background: #EF7247;
 }
 .top-bar .navbar .nav > li > a:hover, .top-bar.alt .navbar .nav > li > a:hover {
 	color: #FFFFFF;
@@ -398,22 +404,28 @@ nav select {
 	margin: 0 auto;
 	padding: 0;
 }
-#about, #register, #speakers, #schedule, #workshops, #venue, #sponsors, #news, #twitter-feed, #contact, #newsletter {
+#about, #ticker, #speakers, #schedule, #workshops, #venue, #sponsors, #news, #twitter-feed, #contact, #newsletter {
 	padding: 50px 0;
 	-webkit-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	-moz-box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 	box-shadow: 0 5px 0 rgba(30, 38, 44, 0.2) inset;
 }
-#about {
+#sponsors {
 	background: none repeat scroll 0 0 #FFFFFF;
 }
-#register {
-	/*background: /*#7bc1a1*/url(../images/backgrounds/buffalo3.jpg) center center no-repeat fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
+#ticker, #venue {
+	background: rgba(76,93,103,.8);
 	padding: 60px 0;
+}
+#venue a:link, #venue a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+#venue a:hover {
+	color: #EF7247;
+}
+#venue h2, #venue h3 {
+	margin-bottom: 10px;
 }
 #speakers {
 	background: #EF7247;
@@ -424,19 +436,7 @@ nav select {
 #workshops {
 	background: #F2BC47;
 }
-#venue {
-	/*background: url(../images/backgrounds/venue.jpg) center center no-repeat fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
-	background-color: #4C5D67;
-	background-color: rgba(76,93,103,.92);
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-}
-#sponsors {
+#about {
 	background: #E7EBED;
 }
 #news {
@@ -453,6 +453,7 @@ nav select {
 #newsletter {
 	background: #E7EBED;
 	padding: 60px 0;
+	display: none;
 }
 #map {
 	background: #4C5D67;
@@ -548,10 +549,9 @@ hr.divider-short {
 	position: relative;
 	text-align: center;
 }
-.subheader h4 {
+.subheader h4, #sponsors h3 {
 	background-color: rgba(0, 0, 0, 0);
 	color: #48A3A6;
-	display: inline-block;
 	font-size: 16px;
 	font-weight: 700 !important;
 	line-height: 20px !important;
@@ -598,6 +598,90 @@ hr.divider-short {
 	border-radius: 6px;
 	color: #2C3840;
 }
+
+/*  -----------------------------------------------------   /*
+	SPEAKERS & ATTENDEES
+/*  -----------------------------------------------------   */
+
+.dudes {
+	position: relative;
+}
+
+.dudes ul {
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.dudes li, .dudes a {
+	display: inline-block;
+}
+
+.dudes img {
+	border: 0;
+}
+
+.dudes .card {
+	position: absolute;
+	text-align: left;
+	left: -999em;
+	width: 100%;
+	background: #fff;
+	border: 5px solid #f1f1f1;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+	box-sizing: border-box;
+}
+
+.dudes .card.open {
+	left: 0;
+	
+}
+
+@media (min-width: 520px) {
+	.dudes .card {
+		width: 480px;
+	}
+	.dudes .card.open {
+		top: 30px;
+		left: 50%;
+		margin-left: -240px;
+	}
+}
+
+.card-title {
+	color: #fff;
+	padding: 10px 15px;
+	background: #4c5d67;
+}
+
+.card-title p a:link, .card-title p a:visited {
+	color: #48A3A6;
+}
+
+.card-title a:hover {
+	color: #EF7247;
+}
+
+.card h3 {
+	font-size: 21px;
+	line-height: 100%;
+	margin: 0;
+}
+
+.card-title p {
+	color: #bbb;
+	margin: 3px 0 0 0;
+}
+
+.card-body > :last-child {
+	margin-bottom: 0;
+}
+
+.card-body {
+	padding: 10px 15px;
+}
+
 /*  -----------------------------------------------------   /*
 	COLORS, IMAGE & ICONS CONTAINERS
 /*  -----------------------------------------------------   /*
@@ -843,13 +927,11 @@ a.instagram:hover {
 	text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 .jumbotron .info {
-	margin: 30px auto 0;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
+	margin: 0 0 20px 0;
 	background: transparent;
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: 700;
+	color: #2C3840;
 	letter-spacing: 4px;
 	text-transform: uppercase;
 }
@@ -929,13 +1011,13 @@ a.instagram:hover {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border: 4px solid #2C3840;
+	border: 4px solid #fff;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-o-border-radius: 50%;
 	border-radius: 50%;
-	color: #2C3840;
+	color: #fff;
 	display: block;
 	font-size: 40px;
 	font-weight: 600;
@@ -958,7 +1040,7 @@ a.instagram:hover {
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;
 	border-radius: 6px;
-	color: #2C3840;
+	color: #fff;
 	display: block;
 	font-size: 14px;
 	font-weight: 200;
@@ -970,7 +1052,8 @@ a.instagram:hover {
 	width: auto;
 }
 .register-title {
-	margin: 25px auto;
+	color: #fff;
+	margin: 25px auto 0 auto;
 }
 /* Schedule Section */
 .schedule-download {
@@ -1057,7 +1140,8 @@ a.instagram:hover {
 	-webkit-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
-	width: 70%;
+	width: 60%;
+	padding: 20px 0;
 }
 .sponsor-logo:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -1940,11 +2024,11 @@ a.instagram:hover {
 @media (max-width: 480px) {
 	.jumbotron {
 	 height: 375px;
-	 padding-top: 165px;
+	 padding-top: 120px;
 	}
 	.jumbotron h1 {
 	 font-size: 48px;
-	 margin: 48px 0 24px;
+	 margin: 24px 0;
 	}
 	.jumbotron h2 {
 	 font-size: 36px;
@@ -1953,6 +2037,10 @@ a.instagram:hover {
 	.jumbotron h3 {
 	 font-size: 30px;
 	 line-height: 1;
+	}
+	.jumbotron .info {
+		margin-top: 48px;
+		font-size: 18px;
 	}
 	.hero-unit > h1 {
 	 font-size: 48px;
@@ -1980,14 +2068,6 @@ a.instagram:hover {
 	}
 	.navbar .btn-navbar {
 	 margin: 18px 0 0 !important;
-	}
-	 .jumbotron {
-	 height: 365px !important;
-	 padding-top: 120px !important;
-	}
-	 .jumbotron h3 {
-	 font-size: 28px;
-	 line-height: 1;
 	}
 	.tab-fillspace li a {
 	 font-size: 13px;

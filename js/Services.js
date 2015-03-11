@@ -24,12 +24,20 @@ angular
     //console.dir(this.isLoggedIn);
     
 }]) //end service
-.factory('UserService', ['$firebase', '$global', 'USERSURL', function($firebase, $global, USERSURL) {
+.factory('UserService', ['$firebase', 'USERSURL', function($firebase, USERSURL) {
   return function(uid) {
     // create a reference to the user's profile
     var ref = new Firebase(USERSURL);
     // return it as a synchronized object
     return $firebase(ref.child(uid)).$asObject();
+  }
+}])
+.factory('AttendeeService', ['$firebase', 'USERSURL', function($firebase, USERSURL) {
+  return function() {
+    // create a reference to the user's profile
+    var ref = new Firebase(USERSURL);
+    // return it as a synchronized object
+    return $firebase(ref).$asArray();
   }
 }])
 .factory('templateCompiler', function ($templateCache, $compile) {

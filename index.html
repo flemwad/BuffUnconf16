@@ -3,9 +3,9 @@
 <head>
 <!-- Basic Page Needs -->
 <meta charset="utf-8" />
-<title>Buffalo Unconference - April 18, 2015</title>
+<title>Buffalo Unconference - April 18, 2015 - Sponsored by AT&amp;T</title>
 <!-- Metas -->
-<meta name="description" content="Buffalo's Unconference - April 18, 2015 9:00 AM - 5:00 PM" />
+    <meta name="description" content="Buffalo's Unconference - April 18, 2015 9:00 AM - 5:00 PM - Sponsored by AT&amp;T. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." />
 <meta name="author" content="Clark Dever, Tyler Flemming, Mike Spencer" />
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,6 +32,7 @@
 </head>
 
 <body ng-app="buffaloUnconference">
+	
 <header class="top-bar" id="topbar">
 	<div class="container" ng-controller="HeaderController">
 		<div class="row">
@@ -42,49 +43,133 @@
 					<nav class="hidden">
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
-								<li><a href="#newsletter">Newsletter</a></li>
-								<li><a href="#venue">Venue</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#venue">Contact</a></li>
+								<li><a href="#sponsors">Sponsors</a></li>
+								<li><a href="#speakers">Speakers</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
 								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">My Profile</a></li>
 							</ul>
 						</div>
 					</nav>
-				</div> 
-				<!-- end navbar --> 
+				</div><!-- end navbar --> 
 			</div>
-		</div>
-		<!-- end row --> 
-	</div>
-	<!-- end container --> 
+		</div><!-- end row --> 
+	</div><!-- end container --> 
 </header>
-<!-- end top-bar -->
+
 <section id="intro">
 	<div class="container" ng-controller="AppController">
-		<div class="flexslider">
-			<ul class="slides">
-				<li> 
-					<!-- slide 1 -->
-					<div class="row jumbotron">
-						<div class="span12 text-center">
-							<h1>April 18, 2015</h1>
-							<h2>9:00 AM - 5:00 PM<br>
-								BNMC Innovation Center<br>
-								FREE Admission!
-							</h2>
-							<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()">Register</a>
-						</div>
-						<!-- end span12 --> 
-					</div>
-					<!-- end row --> 
-				</li>
-				<!-- endslide 1 -->
-			</ul>
-		</div>
-		<!-- end flexslider --> 
+		<div class="row jumbotron">
+			<div class="span12 text-center">
+				<p class="info">Sponsored by AT&amp;T</p>
+				<h1>April 18, 2015</h1>
+				<h2>9:00 AM - 5:00 PM<br>
+					BNMC Innovation Center<br>
+					FREE Admission!
+				</h2>
+				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()">Register</a>
+			</div><!-- end span12 --> 
+		</div><!-- end row --> 
 	</div>
 	<!-- end container --> 
 </section>
 <!-- end intro section --> 
+
+<section id="ticker">
+	<div class="container">
+		<div class="row">
+			<div id="countdown" class="clearfix"></div>
+			<div class="span12 register-box text-center">
+				<h2 class="register-title">Until Buffalo's Unconference</h2>
+            </div>
+		</div><!-- end row --> 
+	</div><!-- end container --> 
+</section>	
+
+<section id="speakers">
+	<div class="container" ng-controller="AttendeeController">
+		<div class="row">
+			<div class="span12">
+				<div class="span12 hero-unit text-center white">
+					<h2>Presenters &amp; Attendees</h2>
+				</div>
+				<div class="dudes">
+					<ul>
+						<li ng-repeat="attendee in attendees">
+                            <div ng-show="attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+                                <div class="card">
+									<div class="card-title">
+                                    	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
+										<h3>{{attendee.displayName}}</h3>
+                                    	<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></p>
+										<p>{{attendee.description}}</p>
+									</div>
+									<div class="card-body">
+										<h4 ng-show="attendee.talk.submitted">{{attendee.talk.topic}}</h4>
+										<p ng-show="attendee.talk.submitted">{{attendee.talk.description}}</p>
+										<p ng-show="attendee.talk.attendOnly">I'm attending but not presenting</p>
+									</div>
+                                </div>
+                            </div>
+                            <div ng-show="!attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="images/photos/face01.jpg" height="48" width="48" alt=""></a>
+                                <div class="card">
+                                    <div class="card-title">
+										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
+										<h3>{{attendee.displayName}}</h3>
+                                    	<p>{{attendee.description}}</p>
+									</div>
+									<div class="card-body">
+										<h4 ng-show="attendee.talk.submitted">{{attendee.talk.topic}}</h4>
+										<p ng-show="attendee.talk.submitted">{{attendee.talk.description}}</p>
+										<p ng-show="attendee.talk.attendOnly">I'm attending but not presenting</p>
+									</div>
+                                </div>
+                            </div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="span12 hero-unit text-center">
+				<h2>What is Buffalo Unconference?</h2>
+			</div>
+			<div class="span12">
+                <p>An ad-hoc gathering, born from a desire for people to share and learn in an open environment. Buffalo Unconference is an interactive event with discussions, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or the desire to learn is welcome to join.</p><br/>
+                <p>Buffalo Unconference is designed to contribute to the growth of our city's entrepreneurial ecosystem.  Promoting entrepreneurship through the collision of people and ideas. At Buffalo Unconference, hundreds of attendees will share their thoughts about interesting topics that they are passionate about. In previous events, attendees who are experts in the subject have presented on Astronomy, Programming, Art, Music, and Volunteerism.  Anything that you love, that the community deems appropriate, can be a the topic of a session.</p><br/>
+                <p>You provide the topic and the content(slide show, demo) and we provide the space, the projector, and an audience. <b>Buffalo Unconference is a "No Sales" zone!</b> You are encouraged to present topics within your expertise, but you're not allowed to advertise your products or services.</p>                
+                <p>Please take a moment, think of a topic you'd like to discuss, and register a talk - Your attendance will make this the best Buffalo Unconference yet!</p><br/>
+			</div>
+			<div class="span12">
+				<div class="divider-space"></div>
+			</div>
+			<div class="span4 text-center">
+				<div class="icon-wrap large color1"><i class="iconf-lightbulb"></i> </div>
+				<h3>The Vision</h3>
+				<p>An open conference, built to bring together a diverse group of people, so they may share their knowledge on topics they are passionate about.</p>
+			</div>
+			<div class="span4 text-center">
+				<div class="icon-wrap large color2"><i class="iconf-world"></i> </div>
+				<h3>Agenda</h3>
+                <p>The agenda is created by attendees during the registration process. Anyone who wants to initiate a discussion on a topic can propose a talk.  The event organizers will schedule 5 conference tracks that run simultaniously composed of the proposed talks</p>
+			</div>
+			<div class="span4 text-center">
+				<div class="icon-wrap large color3"><i class="iconf-beaker"></i> </div>
+				<h3>Talks</h3>
+				<p>Speakers will be given 25 minutes to split, as they choose, between presentation and discussion.  Attendees may attend any talk, on any track, based on their preferences.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section id="newsletter">
 	<div class="container">
 		<div class="row">
@@ -122,26 +207,47 @@
 						</form>
 					</div>
 					<script type='text/javascript' src='http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-					<!--End mc_embed_signup-->
 			</div>
 		</div>
-		<!-- end row --> 
 	</div>
-	<!-- end container --> 
 </section>
-<!-- end newsletter -->
-<section id="register">
-	<div class="container" >
+
+<section id="sponsors">
+	<div class="container" ng-controller="AttendeeController">
 		<div class="row">
-			<div id="countdown"></div>
-			<div class="span12 register-box text-center">
-				<h2 class="register-title">Until Buffalo's Unconference</h2>
-            </div>
+			<div class="span12 hero-unit text-center">
+				<h2>Sponsored by AT&amp;T</h2>
+			</div>
+			<div class="span12 text-center">
+				<a href="http://www.att.com/" target="_blank"><img src="images/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
+			</div>
 		</div>
-		<!-- end row --> 
+		<div class="row">
+			<div class="span12 text-center">
+				<h3>Additional Sponsors</h3>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.43north.org/" target="_blank"><img src="images/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://digbuffalo.org/" target="_blank"><img src="images/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.s1search.com/" target="_blank"><img src="images/sponsors/selectone_grey.png" alt="SelectOne Search" class="sponsor-logo"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span4 text-center">
+				<a href="http://algonquinstudios.com/" target="_blank"><img src="images/sponsors/algonquin_grey.png" alt="Algonquin Studios" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://www.z80labs.com/" target="_blank"><img src="images/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
+			</div>
+		</div>
 	</div>
-	<!-- end container --> 
 </section>
+
 <section id="venue" class="white">
 	<div class="container">
 		<div class="row">
@@ -150,12 +256,18 @@
 				<h2>Venue</h2>
 				<h3>BNMC Innovation Center</h3>
 				<p>640 Ellicott Street<br>
-				Buffalo, NY 14203<br>
-				United States</p>
+					Buffalo, NY 14203<br>
+					United States</p>
+				<h2>Contact</h2>
+				<p><b>Clark Dever</b><br>
+					<a href="tel:7168033213">716-803-3213</a><br>
+					<a href="mailto:clarkdever@gmail.com?subject=Unconference">clarkdever@gmail.com</a><br>
+					<a href="https://twitter.com/clarkdever" target="_blank">@clarkdever</a></p>
 			</div>
 			<div class="span6">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2922.8886974858115!2d-78.868882!3d42.896294999999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d3125bc9cd70f3%3A0x8caa00b3b3a7ddb!2sInnovation+Center-BNMC!5e0!3m2!1sen!2sus!4v1424315636708" width="800" height="300" frameborder="0" style="border:0;max-width:100%"></iframe>
 			</div>
+		</div>
 		<!-- end row --> 
 	</div>
 	<!-- end container --> 
@@ -165,7 +277,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12 text-center">
-				<div class="copyright">&copy; 2015 Buffalo Unconference</div>
+				<div class="copyright">&copy; 2015 Buffalo Unconference &nbsp; <a href="mailto:clarkdever@gmail.com?subject=Unconference">Contact</a></div>
 			</div>
 			<!-- end span12 --> 
 		</div>
@@ -181,7 +293,6 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
 <script type="text/javascript" src="js/jquery.ui.map.min.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/jquery.flexslider-min.js"></script> 
 <script type="text/javascript" src="js/jquery.carousel.js"></script> 
 <script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script> 
 <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script> 
@@ -208,6 +319,7 @@
 <script type="text/javascript" src="js/templates.js"></script>
 <script type="text/javascript" src="js/ModifyUserController.js"></script>    
 <script type="text/javascript" src="js/HeaderController.js"></script>
+<script type="text/javascript" src="js/AttendeeController.js"></script>
     
 <script type="text/javascript" src="js/app.js"></script>
     

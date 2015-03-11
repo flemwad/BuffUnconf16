@@ -6,6 +6,7 @@ angular
     'services',
     'header-controller',
     'modify-user-controller',
+    'attendee-controller',
     'templates'
 ])
 .controller('AppController', 
