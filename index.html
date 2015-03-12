@@ -101,9 +101,9 @@
 								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
                                 <div class="card">
 									<div class="card-title">
-                                    	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
+                                    	<a href="#" class="close" onclick="closeCard($(this)); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
-                                    	<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></p>
+										<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a><span ng-show="attendee.url"> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></span></p>
 										<p>{{attendee.description}}</p>
 									</div>
 									<div class="card-body">
