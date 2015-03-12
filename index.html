@@ -48,7 +48,7 @@
 								<li><a href="#sponsors">Sponsors</a></li>
 								<li><a href="#speakers">Speakers</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
-								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">My Profile</a></li>
+								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">Edit Talk</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -92,16 +92,17 @@
 		<div class="row">
 			<div class="span12">
 				<div class="span12 hero-unit text-center white">
+					<!--<a ng-hide="!isLoggedIn" class="btn btn-lg pull-right" href="" ng-click="showLoginModifyModal()">Edit Talk</a>-->
 					<h2>Presenters &amp; Attendees</h2>
 				</div>
 				<div class="dudes">
 					<ul>
 						<li ng-repeat="attendee in attendees">
                             <div ng-show="attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
                                 <div class="card">
 									<div class="card-title">
-                                    	<a href="#" class="close" onclick="closeCard($(this)); return false;">x</a>
+                                    	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
 										<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a><span ng-show="attendee.url"> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></span></p>
 										<p>{{attendee.description}}</p>
@@ -114,7 +115,7 @@
                                 </div>
                             </div>
                             <div ng-show="!attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb" onclick="showCard($(this)); return false;"><img ng-src="images/photos/face01.jpg" height="48" width="48" alt=""></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><img ng-src="images/photos/face01.jpg" height="48" width="48" alt=""></a>
                                 <div class="card">
                                     <div class="card-title">
 										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
