@@ -31,12 +31,16 @@ function ($scope, $firebase, $global, $timeout, AttendeeService) {
 }]);
 
 // Display attendee card
-function showCard(card) {
-	$('.card.open').removeClass('open');
-	card.next().addClass('open');
+function showCard(pic) {
+	closeCard();
+	pic.next().addClass('open');
+	pic.next().appendTo('.dudes');
+	pic.addClass('origin');
 }
 
 // Hide attendee card
 function closeCard() {
+	$('.dudes .origin').after($('.card.open'));
+	$('.dudes .origin').removeClass('origin');
 	$('.card.open').removeClass('open');
 }
