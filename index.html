@@ -43,12 +43,12 @@
 					<nav class="hidden">
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
-								<li><a href="#about">About</a></li>
-								<li><a href="#venue">Contact</a></li>
+								<li><a href="#intro">About</a></li>
+                                <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
-								<li><a href="#speakers">Speakers</a></li>
-                                <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
-								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">Edit Talk</a></li>
+                                <li><a href="#venue">Contact</a></li>
+                                <li ng-hide="isLoggedIn"><a id="register-button" href="" >Register</a></li>
+								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" data-target="#editTwitTalkModal" data-toggle="modal">Edit Talk</a></li>
 							</ul>
 						</div>
 					</nav>
