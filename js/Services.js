@@ -9,6 +9,7 @@ angular
     this.ref = new Firebase(FBURL);
     
     this.uid = null;
+    this.userCount = -1;
     
     this.auth = $firebaseAuth(this.ref);
     this.loginObj = this.auth.$getAuth();
