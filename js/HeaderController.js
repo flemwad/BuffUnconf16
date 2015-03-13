@@ -42,6 +42,11 @@ function ($scope, $firebase, $global, $window, $timeout, $rootScope, UserService
         }); 
     };
     
+    //listen for a broadcast from AppController for Register Jumbotron click
+    $rootScope.$on('editProfileClick', function () {
+        $scope.showLoginModifyModal();
+    });
+    
     $scope.showLoginModifyModal = function () {
         var modalHTML = $global.isTwitterLogin ? 'mod-user-twitter-modal.html' : 'mod-user-simple-modal.html';
         var title = $global.isTwitterLogin ? 'MODIFY YOUR TALK' : 'MODIFY YOUR INFO';

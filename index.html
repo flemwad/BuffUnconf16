@@ -44,10 +44,10 @@
 					<nav class="hidden">
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav">
-								<li><a href="#about">About</a></li>
-								<li><a href="#venue">Contact</a></li>
+								<li><a href="#intro">About</a></li>
+                                <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
-								<li><a href="#speakers">Speakers</a></li>
+                                <li><a href="#venue">Contact</a></li>
                                 <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
 								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">Edit Talk</a></li>
 							</ul>
@@ -93,7 +93,7 @@
 		<div class="row">
 			<div class="span12">
 				<div class="span12 hero-unit text-center white">
-					<!--<a ng-hide="!isLoggedIn" class="btn btn-lg pull-right" href="" ng-click="showLoginModifyModal()">Edit Talk</a>-->
+					<a ng-hide="!isLoggedIn" class="btn btn-lg pull-right" href="" ng-click="openEditProfile()">Edit Talk</a>
 					<h2>Presenters &amp; Attendees</h2>
 				</div>
 				<div class="dudes">
@@ -215,7 +215,7 @@
 </section>
 
 <section id="sponsors">
-	<div class="container" ng-controller="AttendeeController">
+	<div class="container">
 		<div class="row">
 			<div class="span12 hero-unit text-center">
 				<h2>Sponsored by AT&amp;T</h2>
@@ -229,19 +229,21 @@
 				<h3>Additional Sponsors</h3>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.43north.org/" target="_blank"><img src="img/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
+				<a href="http://infotechniagara.org/" target="_blank"><img src="img/sponsors/infotechniagara.png" alt="Infotech Niagara" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://digbuffalo.org/" target="_blank"><img src="img/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
+				<a href="http://www.43north.org/" target="_blank"><img src="img/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
 				<a href="http://www.s1search.com/" target="_blank"><img src="img/sponsors/selectone_grey.png" alt="SelectOne Search" class="sponsor-logo"></a>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span2"></div>
 			<div class="span4 text-center">
 				<a href="http://algonquinstudios.com/" target="_blank"><img src="img/sponsors/algonquin_grey.png" alt="Algonquin Studios" class="sponsor-logo"></a>
+			</div>
+			<div class="span4 text-center">
+				<a href="http://digbuffalo.org/" target="_blank"><img src="img/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
 				<a href="http://www.z80labs.com/" target="_blank"><img src="img/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
