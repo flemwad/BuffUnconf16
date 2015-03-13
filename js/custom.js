@@ -63,12 +63,6 @@ $(document).ready(function () {
 		});
 	});
 	
-	// Flexslider
-	// Can also be used with $(document).ready()
-//	$('.flexslider').flexslider({
-//		animation: "slide"
-//	});
-	
 	// Tabs //
 	$('#schedule-tabs a').click(function (e) {
 		e.preventDefault();
@@ -78,13 +72,6 @@ $(document).ready(function () {
 	// Tooltip //
 	$("[rel=tooltip]").tooltip();
 	$("[data-rel=tooltip]").tooltip();
-	
-	//.parallax(xPosition, speedFactor, outerHeight) options:
-	//xPosition - Horizontal position of the element
-	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-	$('#intro').parallax("50%", 0.1);
-	$('#venue').parallax("50%", 0.02);
 	
 	// Carousel //
 	$(".speakers-carousel").carousel({
@@ -134,13 +121,6 @@ $(document).ready(function () {
 		$('.register-box').append('<button class="btn btn-large btn-primary disabled" disabled="true" id="register-button">Sold Out</button>');
 	}
 	
-	// Twitter Feed //
-	$('.tweet').twittie({
-		dateFormat: '%B %d, %Y',
-		template: '<div class="date">{{date}}</div> {{tweet}}',
-		count: 3, // define the number of tweets to be displayed, if it's one, read the lines below
-		hideReplies: true
-	});
 	// if you want to display only one tweet, please remove the following lines:
 	// if so, don't forget you need to change style.css line 1036 display property to display: block;
 	setInterval(function () {
@@ -151,79 +131,8 @@ $(document).ready(function () {
 			$(this).detach().appendTo('.tweet ul').removeAttr('style');
 		});
 	}, 12000);
-	
-	// Contact Form //
-	$('#contactform').validationEngine();
-    
-    // send the form by ajax when sumbitted
-    $('#contactform').submit(function(e){
-        e.preventDefault();
-        var submitUrl = $(this).attr('action');
-        $.ajax({
-            url: submitUrl,
-            type: 'POST',
-            data: $(this).serialize(),
-            dataType: "json",
-            beforeSend: function () {
-                $('#submit').attr('disabled', 'disabled');
-                $('#ErrorMsgs').fadeOut('slow').html('<div class="alert alert-info">Checking...<a href="#" class="close">&times;</a></div>').fadeIn('slow');
-            },
-            success: function(data) {
-                if(data.status === 'success'){
-                    $('#contactform')[0].reset();
-                }
-                $('#ErrorMsgs').html(data.message).fadeIn('slow');
-                $('#submit').removeAttr('disabled');
-            }
-        });
-        return false;
-    });
 
 	
-	// Google Map //
-	$('#map_canvas').gmap({
-		'center': new google.maps.LatLng(42.896295, -78.868882), // Change this to your desired latitude and longitude
-		'zoom': 17,
-		'mapTypeControl': false,
-		'navigationControl': false,
-		'streetViewControl': false,
-		'styles': [{
-			stylers: [{
-				gamma: 0.60
-			}, {
-				hue: "#5DBEB2"
-			}, {
-				invert_lightness: false
-			}, {
-				lightness: 2
-			}, {
-				saturation: -20
-			}, {
-				visibility: "on"
-			}]
-		}]
-	});
-	var image = {
-		url: 'images/marker.png', // Define the map marker file here
-		// This marker is 51 pixels wide by 63 pixels tall.
-		size: new google.maps.Size(51, 63),
-		// The origin for this image is 0,0.
-		origin: new google.maps.Point(0, 0),
-		// The anchor for this image is the base of the flagpole at 26,63.
-		anchor: new google.maps.Point(26, 63)
-	};
-	$('#map_canvas').gmap().bind('init', function () {
-		$('#map_canvas').gmap('addMarker', {
-			'id': 'marker-1',
-			'position': '40.77288,-73.98299',
-			'bounds': false,
-			'icon': image
-		}).click(function () {
-			$('#map_canvas').gmap('openInfoWindow', {
-				'content': '<h4>Eventify</h4><p><strong>Downtown Conference Center</strong><br>Columbus Ave. New York, NY 10019 </p>'
-			}, this);
-		});
-	});
 	
 	// end		
 })
