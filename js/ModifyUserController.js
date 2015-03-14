@@ -10,6 +10,8 @@ angular
     'UserService',
 function ($scope, $firebase, $global, $timeout, UserService) {
 
+    //console.dir('ModifyUserController instantiation');
+    
     $scope.userObj = null;
     $scope.talkObj = null;
     
@@ -23,6 +25,14 @@ function ($scope, $firebase, $global, $timeout, UserService) {
         });
     };
     
+    $scope.getRekt = function () {
+        //lmfao, wait for the digest cycle to kill this scope on close of modal
+        //holy hell I'm never using bootbox ever again, or bootstrap less than v3
+        $timeout(function() {
+            $scope.$destroy();
+        }, 0);
+    };
+    
     $scope.attendOnly = function () {
         if (angular.isObject($scope.talkObj) && angular.isObject($scope.userObj)) {
             $scope.talkObj.attendOnly = true;
@@ -33,22 +43,42 @@ function ($scope, $firebase, $global, $timeout, UserService) {
             $scope.talkObj.url = '';
             
             $scope.userObj.$save();
-            bootbox.hideAll();
         }
+        
+        $scope.getRekt();
     };
     
-    $scope.save = function () {
+    $scope.saveTwit = function () {
         if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.talkObj.topic !== '' && $scope.talkObj.description !== '') {
             $scope.talkObj.attendOnly = false;
             $scope.talkObj.submitted = true;
             $scope.userObj.$save();
         }
+        
+        $scope.getRekt();
+    };
+    
+    $scope.saveSimple = function () {
+        if(angular.isObject($scope.userObj) && $scope.userObj.displayName !== '' && $scope.userObj.description !== '') {
+            $scope.userObj.$save();
+        }
+        
+        if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.talkObj.topic !== '' && $scope.talkObj.description !== '') {
+            $scope.talkObj.attendOnly = false;
+            $scope.talkObj.submitted = true;
+            $scope.userObj.$save();
+        }
+        
+        $scope.getRekt();
     };
     
     $scope.$on('modSavePress', function (event, data) {
         switch (data) {
-            case 'save':
-                $scope.save();
+            case 'saveTwit':
+                $scope.saveTwit();
+                break;
+            case 'saveSimple':
+                $scope.saveSimple();
                 break;
             case 'attendOnly':
                 $scope.attendOnly();
@@ -58,7 +88,11 @@ function ($scope, $firebase, $global, $timeout, UserService) {
         }
     });
     
+//    $scope.$on("$destroy", function() {
+//        console.dir('modify close');
+//    });
+    
     $timeout(function() {
         $scope.init();
-    }, 50);
+    }, 100);
 }]);

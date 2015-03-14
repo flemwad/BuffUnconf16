@@ -68,7 +68,8 @@ function ($scope, $firebase, $global, $window, $timeout, $rootScope, UserService
                     label: "Save",
                     className: "btn btn-success",
                     callback: function() {
-                        $scope.$broadcast('modSavePress', 'save');
+                        if($global.isTwitterLogin) $scope.$broadcast('modSavePress', 'saveTwit');
+                        else $scope.$broadcast('modSavePress', 'saveSimple');
                     }
                 },
                 cancel: {
