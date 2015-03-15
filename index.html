@@ -24,6 +24,12 @@
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+    
+    <meta property="og:url" content="http://www.buffalounconference.com" />
+    <meta property="og:title"  content="Announcing Buffalo Unconference - April 18th, 2015" />
+    <meta property="og:site_name" content="Buffalo Unconference"/>
+    <meta property="og:description" content="Buffalo Unconference (Sponsored by AT&T) is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love." />
+    <meta property="og:image" content="http://www.buffalounconference.com/img/BuffaloUnconference.jpg" />
 </head>
 
 <body ng-app="buffaloUnconference">
@@ -42,8 +48,9 @@
                                 <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
                                 <li><a href="#venue">Contact</a></li>
-                                <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-click="openRegisterModal()">Register</a></li>
-								<li ng-hide="!isLoggedIn"><a id="modify-button" href="" ng-click="showLoginModifyModal()">Edit Talk</a></li>
+                                <li ng-hide="isLoggedIn"><a id="register-button" href="" data-target="#registerModal" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register</a></li>
+								<li ng-hide="!isLoggedIn" ng-if="isTwitterLogin"><a id="modify-twit-button" href="" data-target="#editTwitTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Talk</a></li>
+                                <li ng-hide="!isLoggedIn" ng-if="!isTwitterLogin"><a id="modify-simple-button" href="" data-target="#editSimpleTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Info</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -52,7 +59,7 @@
 		</div><!-- end row --> 
 	</div><!-- end container --> 
 </header>
-
+    
 <section id="intro">
 	<div class="container" ng-controller="AppController">
 		<div class="row jumbotron">
@@ -63,7 +70,8 @@
 					BNMC Innovation Center<br>
 					FREE Admission!
 				</h2>
-				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()">Register</a>
+                <p class="info" ng-if="maxUserLimitReached">Buffalo Unconference has reached capacity! Please stop by next year.</p>
+				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
 	</div>
@@ -84,18 +92,22 @@
 
 <section id="speakers">
 	<div class="container" ng-controller="AttendeeController">
-		<div class="row">
+        <div class="span12 hero-unit text-center white">
+            <h1>{{300 - userCount}} spots left!</h3>
+        </div>
+        <!-- Speaker Row -->
+		<div class="row" id="speaker-row">
 			<div class="span12 hero-unit text-center white">
 				<a ng-hide="!isLoggedIn" class="btn btn-lg pull-right" href="" ng-click="openEditProfile()"><i class="fa fa-bullhorn"></i> Edit Talk</a>
-				<h2>Presenters &amp; Attendees</h2>
+				<h2>{{speakerCount}} Presenters</h2>
 			</div>
 			<div class="span12">
 				<div class="dudes">
 					<ul>
-						<li ng-repeat="attendee in attendees">
-                            <div ng-show="attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+						<li data-ng-repeat="attendee in attendees | orderBy:'displayName'">
+                            <div ng-show="attendee.username && attendee.talk.submitted"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
 								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
-                                <div class="card">
+                                <div class="card" id="speaker-card">
 									<div class="card-title">
                                     	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h3>{{attendee.displayName}}</h3>
@@ -109,8 +121,8 @@
 									</div>
                                 </div>
                             </div>
-                            <div ng-show="!attendee.username"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img ng-src="img/photos/face01.jpg" height="48" width="48" alt=""></a>
+                            <div ng-show="!attendee.username && attendee.talk.submitted"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img gravatar-src-once="attendee.email" height="48" width="48" alt=""></a>
                                 <div class="card">
                                     <div class="card-title">
 										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
@@ -129,6 +141,31 @@
 				</div>
 			</div>
 		</div>
+        <!-- End Speaker Row -->
+        
+        <!-- Attendee Row -->
+        <div class="row">
+			<div class="span12 hero-unit text-center white">
+				<h2>{{attendeeCount}} Attendees</h2>
+			</div>
+			<div class="span12">
+				<div class="dudees">
+					<ul>
+						<li data-ng-repeat="attendee in attendees | orderBy:'displayName'">
+                            <div ng-show="attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+                            </div>
+                            <div ng-show="!attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img gravatar-src-once="attendee.email" height="48" width="48" alt=""></a>
+                            </div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+        <!-- End Attendee Row -->
+        
+        
 	</div>
 </section>
 	
@@ -139,7 +176,7 @@
 				<h2>What is Buffalo Unconference?</h2>
 			</div>
 			<div class="span12">
-                <p>An ad-hoc gathering, born from a desire for people to share and learn in an open environment. Buffalo Unconference is an interactive event with discussions, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or the desire to learn is welcome to join.</p><br/>
+                <p>A gathering, born from a desire to create an event for people to share and learn in an open environment. Buffalo Unconference is an interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or the desire to learn is welcome to join.</p><br/>
                 <p>Buffalo Unconference is designed to contribute to the growth of our city's entrepreneurial ecosystem.  Promoting entrepreneurship through the collision of people and ideas. At Buffalo Unconference, hundreds of attendees will share their thoughts about interesting topics that they are passionate about. In previous events, attendees who are experts in the subject have presented on Astronomy, Programming, Art, Music, and Volunteerism.  Anything that you love, that the community deems appropriate, can be a the topic of a session.</p><br/>
                 <p>You provide the topic and the content(slide show, demo) and we provide the space, the projector, and an audience. <b>Buffalo Unconference is a "No Sales" zone!</b> You are encouraged to present topics within your expertise, but you're not allowed to advertise your products or services.</p>                
                 <p>Please take a moment, think of a topic you'd like to discuss, and register a talk - Your attendance will make this the best Buffalo Unconference yet!</p><br/>
@@ -282,17 +319,150 @@
 		<!-- end row --> 
 	</div>
 	<!-- end container --> 
-</footer>
+</footer>    
 <!-- end Document --> 
+    
+
+    <!-- Edit Twit User Modal -->
+    <div id="editTwitTalkModal" class="modal hide fade" aria-hidden="true" ng-controller="ModifyTwitUserController">
+        <div class="modal-header">
+            <h3 id="myModalLabel">MODIFY YOUR TALK</h3>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <div class="span4">
+                        <ng-form name="modTwitTalkForm" class="row-border" novalidate>
+                            <div class="form-group">
+                                <label class="control-label">Topic</label>
+                                <input type="text" ng-model="talkObj.topic" class="form-control" placeholder="Title of your talk..." required />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                                <textarea class="form-control" ng-model="talkObj.description" rows="5" placeholder="A short description of your talk..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">URL</label>
+                                <input type="text" ng-model="talkObj.url" class="form-control" placeholder="Site to help present your talk" />
+                            </div>
+                        </ng-form>
+                        <div ng-if="talkObj.attendOnly">
+                            <label>You are currently attending only.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left">Attend Only</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveTwit()" ng-disabled="modTwitTalkForm.$invalid">Save</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+    <!-- Edit Twit User Modal -->
+    
+    
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal hide fade" aria-hidden="true" ng-controller="RegisterController">
+        <div class="modal-header">
+            <button type="button" id="register-close-button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 id="myModalLabel">BUFFALO UNCONFERENCE REGISTRATION</h3>
+        </div>
+        <div class="modal-body">
+            <div class="span3">
+                <h3>Connect with Twitter</h3>
+                <button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> Connect</button>
+            </div>
+            <div class="span1">
+                - or -
+            </div>
+            <div class="span3">
+                <h3>Simple Connect</h3>
+                <ng-form name="registerForm" class="row-border" novalidate>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <div>
+                            <input name="email" type="email" ng-model="email" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <div>
+                            <input name="password" type="password" ng-model="password" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success" ng-click="normalRegister(email, password)" ng-disabled="registerForm.$invalid">Register</button>
+                        <button type="submit" class="btn btn-success" ng-click="normalLogin(email, password, false, $event)" ng-disabled="registerForm.$invalid"> Login</button>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <span ng-if="invalidTwitRegistration" class="pull-left">Invalid Twitter registration!</span>
+            <span ng-if="invalidLogin" class="pull-right">Invalid username or password!</span>
+            <div ng-if="invalidRegistration" class="pull-right">User already exists!</div>
+        </div>
+    </div>
+    <!-- End Register Modal -->
+    
+    <!-- Edit Simple User Modal -->
+    <div id="editSimpleTalkModal" class="modal hide fade" aria-hidden="true" ng-controller="ModifySimpleUserController">
+        <div class="modal-body">
+            <div class="span4">
+                <h3>USER INFO</h3>
+                <ng-form name="modSimpleUserForm" class="row-border" novalidate>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" ng-model="userObj.displayName" class="form-control" placeholder="First and Last Name..." required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" ng-model="userObj.description" rows="5" placeholder="A short description of your talk..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Location</label>
+                        <input type="text" ng-model="userObj.location" class="form-control" placeholder="Where you currently live..." />
+                    </div>
+                </ng-form>
+            </div>
+            <div class="span4">
+                <h3>TALK INFO</h3>
+                <ng-form name="modSimpleTalkForm" class="row-border" novalidate>
+                    <div class="form-group">
+                        <label class="control-label">Topic</label>
+                        <input type="text" ng-model="talkObj.topic" class="form-control" placeholder="Title of your talk..." required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" ng-model="talkObj.description" rows="5" placeholder="A short description of your talk..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">URL</label>
+                        <input type="text" ng-model="talkObj.url" class="form-control" placeholder="Site to help present your talk" />
+                    </div>
+                </ng-form>
+                <div ng-if="talkObj.attendOnly">
+                    <label>You are currently attending only.</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" ng-disabled="modSimpleUserForm.$invalid" style="pull-left">Attend Only</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveSimple()" ng-disabled="modSimpleUserForm.$invalid">Save</button>
+        </div>
+    </div>
+    <!-- Edit Simple User Modal -->
+    
+    
 <!-- javascripts --> 
 <!-- Placed at the end of the document so the pages load faster --> 
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script>  
 <script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script> 
-<script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script> 
+<script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
 <script type="text/javascript" src="js/jquery.nav.js"></script> 
 <script type="text/javascript" src="js/jquery.countdown.min.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.2.0/bootbox.min.js"></script>
 
 <!--We may or may not need some of what's in here, clean it up a bit possibly-->
 <script type="text/javascript" src="js/custom.js"></script>
@@ -303,11 +473,13 @@
 <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
 <!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js"></script>
+<script type="text/javascript" src="js/angular-gravatar.min.js"></script>
     
 <!--Our js files-->
-<script type="text/javascript" src="js/Services.js"></script>    
-<script type="text/javascript" src="js/templates.js"></script>
-<script type="text/javascript" src="js/ModifyUserController.js"></script>    
+<script type="text/javascript" src="js/Services.js"></script>
+<script type="text/javascript" src="js/RegisterController.js"></script>
+<script type="text/javascript" src="js/ModifyTwitUserController.js"></script>
+<script type="text/javascript" src="js/ModifySimpleUserController.js"></script>
 <script type="text/javascript" src="js/HeaderController.js"></script>
 <script type="text/javascript" src="js/AttendeeController.js"></script>
     

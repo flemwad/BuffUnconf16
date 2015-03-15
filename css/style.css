@@ -588,7 +588,7 @@ hr.divider-short {
 }
 
 /*  -----------------------------------------------------   /*
-	SPEAKERS & ATTENDEES
+	SPEAKERS
 /*  -----------------------------------------------------   */
 
 .dudes {
@@ -646,6 +646,99 @@ hr.divider-short {
 
 @media (max-width: 767px) {
 	.dudes .card {
+		width: 100%;
+	}
+}
+
+.card-title {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.card-title p a:link, .card-title p a:visited {
+	color: #bbb;
+}
+
+.card-title p a:hover {
+	color: #fff;
+}
+
+.card h3 {
+	font-size: 21px;
+	line-height: 100%;
+	margin: 0;
+}
+
+.card-title p {
+	color: #ddd;
+	margin: 3px 0 0 0;
+}
+
+.card-body > :last-child {
+	margin-bottom: 0;
+}
+
+
+/*  -----------------------------------------------------   /*
+    ATTENDEES (dudees :P)
+/*  -----------------------------------------------------   */
+
+.dudees {
+	position: relative;
+}
+
+.dudees ul {
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.dudees li, .dudes a {
+	display: inline-block;
+}
+
+.dudees a {
+	position: relative;
+}
+
+.dudees img {
+	border: 0;
+}
+
+.dudees i {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 16px;
+	color: #fff;
+	padding: 3px;
+	background: rgba(72, 163, 166, .7);
+	border-radius: 3px 0 0 0;
+	z-index: 42;
+}
+
+.dudees .card {
+	color: #fff;
+	text-align: left;
+	padding: 20px;
+	margin: 20px auto 0 auto;
+	width: 50%;
+	background: rgba(30, 38, 44, 0.2);
+	box-shadow: inset 0 0 10px 0 rgba(0,0,0,.2);
+	border-radius: 10px;
+	box-sizing: border-box;
+	display: none;
+}
+
+.dudees .card.open {
+	display: block;
+	
+}
+
+@media (max-width: 767px) {
+	.dudees .card {
 		width: 100%;
 	}
 }

@@ -4,12 +4,17 @@ angular
 .module('services', [])
 .constant('FBURL', 'https://buffalo-unconference.firebaseio.com/')
 .constant('USERSURL', 'https://buffalo-unconference.firebaseio.com/users')
-.service('$global', ['$rootScope', '$firebaseAuth', 'FBURL', 'USERSURL', function ($rootScope, $firebaseAuth, FBURL, USERSURL) {
+.service('$global', ['$rootScope', '$firebaseAuth', '$firebase', 'FBURL', 'USERSURL', function ($rootScope, $firebaseAuth, $firebase, FBURL, USERSURL) {
     
     this.ref = new Firebase(FBURL);
+    this.userRef = new Firebase(USERSURL);
     
     this.uid = null;
-    this.userCount = -1;
+    this.userCount = 0;
+    this.speakerCount = 0;
+    this.attendeeCount = 0;
+    
+    this.maxUserLimitReached = false;
     
     this.auth = $firebaseAuth(this.ref);
     this.loginObj = this.auth.$getAuth();
@@ -22,35 +27,44 @@ angular
         this.isSimpleLogin = this.uid.indexOf('simple') > -1;
     }
     
-    //console.dir(this.isLoggedIn);
+    this.userRef.once('value', function(snapshot) {
+        var users = snapshot.val();
+        this.userCount = Object.keys(users).length;
+        
+        if(angular.equals(300, this.userCount)) {
+            this.maxUserLimitReached = true;
+            $rootScope.$broadcast('maxLimitReached');
+        }
+        
+        Object.keys(users).forEach(function(key) {
+            var userObj = users[key];
+            
+            if(userObj.talk.submitted) this.speakerCount++;
+            else this.attendeeCount++;
+        }, this);
+        
+        $rootScope.$broadcast('userCountReady');
+        $rootScope.$broadcast('speakerCountReady');
+        $rootScope.$broadcast('attendeeCountReady');
+        
+        //console.dir(this.userCount.toString() + ' users signed up');
+        //console.dir(this.speakerCount.toString() + ' speakers signed up');
+        //console.dir(this.attendeeCount.toString() + ' attendees signed up');
+        
+    }, function (errorObject) {
+        console.dir('User count read failed: ' + errorObject.code);
+    }, this);
     
 }]) //end service
-.factory('UserService', ['$firebase', 'USERSURL', function($firebase, USERSURL) {
-  return function(uid) {
-    // create a reference to the user's profile
-    var ref = new Firebase(USERSURL);
-    // return it as a synchronized object
-    return $firebase(ref.child(uid)).$asObject();
-  }
+.factory('UserService', ['$firebase', '$global', function($firebase, $global) {
+    return function (uid) {
+        // return as a synchronized object
+        return $firebase($global.userRef.child(uid)).$asObject();
+    };
 }])
-.factory('AttendeeService', ['$firebase', 'USERSURL', function($firebase, USERSURL) {
+.factory('AttendeeService', ['$firebase', '$global', function($firebase, $global) {
   return function() {
-    // create a reference to the user's profile
-    var ref = new Firebase(USERSURL);
     // return it as a synchronized object
-    return $firebase(ref).$asArray();
-  }
-}])
-.factory('templateCompiler', function ($templateCache, $compile) {
-    return {
-        getCompiledHTML: function ($scope, htmlTemplateName) {
-            var tplCrop = $templateCache.get(htmlTemplateName);
-
-            var template = angular.element(tplCrop);
-            var linkFn = $compile(template);
-            var compiledHTML = linkFn($scope);
-
-            return compiledHTML;
-        }
-    }
-});
+    return $firebase($global.userRef).$asArray();
+  };
+}]);
