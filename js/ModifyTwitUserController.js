@@ -1,19 +1,26 @@
 'use strict'
 
 angular
-.module('modify-user-controller', [])
-.controller('ModifyUserController',
+.module('modify-twit-user-controller', [])
+.controller('ModifyTwitUserController',
 [   '$scope',
     '$firebase',
     '$global',
     '$timeout',
+    '$rootScope',
     'UserService',
-function ($scope, $firebase, $global, $timeout, UserService) {
+function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
 
     $scope.userObj = null;
     $scope.talkObj = null;
     
+    $rootScope.$on('editTwitTalkClicked', function () {
+        $scope.init();
+    });
+    
     $scope.init = function () {
+        console.dir('open twit');
+        
         $scope.userObj = UserService($global.uid);
         
         $scope.userObj.$loaded().then(function() { //success callback
@@ -33,32 +40,16 @@ function ($scope, $firebase, $global, $timeout, UserService) {
             $scope.talkObj.url = '';
             
             $scope.userObj.$save();
-            bootbox.hideAll();
         }
     };
     
-    $scope.save = function () {
+    $scope.saveTwit = function () {
         if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.talkObj.topic !== '' && $scope.talkObj.description !== '') {
             $scope.talkObj.attendOnly = false;
             $scope.talkObj.submitted = true;
             $scope.userObj.$save();
         }
+        
     };
     
-    $scope.$on('modSavePress', function (event, data) {
-        switch (data) {
-            case 'save':
-                $scope.save();
-                break;
-            case 'attendOnly':
-                $scope.attendOnly();
-                break;
-            case 'cancel':
-                break;
-        }
-    });
-    
-    $timeout(function() {
-        $scope.init();
-    }, 50);
 }]);
