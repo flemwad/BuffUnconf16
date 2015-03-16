@@ -45,7 +45,6 @@ function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
     
     $scope.saveSimple = function () {
         if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.userObj.displayName !== '' && $scope.userObj.description !== '') {
-            $scope.talkObj.attendOnly = false;
             $scope.userObj.$save();
         }
         
