@@ -11,6 +11,20 @@ angular
     'register-controller',
     'ui.gravatar'
 ])
+.config([
+  'gravatarServiceProvider', function(gravatarServiceProvider) {
+    gravatarServiceProvider.defaults = {
+      size     : 48,
+      "default": 'monsterid'  // Mystery man as default for missing avatars
+    };
+
+    // Use https endpoint
+    gravatarServiceProvider.secure = true;
+
+    // Force protocol
+    gravatarServiceProvider.protocol = 'my-protocol';
+  }
+])
 .controller('AppController', 
 [
     '$scope', 

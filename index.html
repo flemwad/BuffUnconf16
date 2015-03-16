@@ -32,7 +32,7 @@
     <meta property="og:image" content="http://www.buffalounconference.com/img/BuffaloUnconference.jpg" />
 </head>
 
-<body ng-app="buffaloUnconference">
+<body ng-app="buffaloUnconference" ng-cloak>
 	
 <header class="top-bar" id="topbar">
 	<div class="container" ng-controller="HeaderController">
@@ -48,7 +48,7 @@
                                 <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
                                 <li><a href="#venue">Contact</a></li>
-                                <li ng-hide="isLoggedIn"><a id="register-button" href="" data-target="#registerModal" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register</a></li>
+                                <li ng-hide="isLoggedIn"><a id="register-button" href="" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register</a></li>
 								<li ng-hide="!isLoggedIn" ng-if="isTwitterLogin"><a id="modify-twit-button" href="" data-target="#editTwitTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Talk</a></li>
                                 <li ng-hide="!isLoggedIn" ng-if="!isTwitterLogin"><a id="modify-simple-button" href="" data-target="#editSimpleTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Info</a></li>
 							</ul>
@@ -153,10 +153,10 @@
 					<ul>
 						<li data-ng-repeat="attendee in attendees | orderBy:'displayName'">
                             <div ng-show="attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
                             </div>
                             <div ng-show="!attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
-								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><i ng-show="attendee.talk.submitted" class="fa fa-bullhorn"></i><img gravatar-src-once="attendee.email" height="48" width="48" alt=""></a>
+								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><img gravatar-src-once="attendee.email" height="48" width="48" alt=""></a>
                             </div>
 						</li>
 					</ul>
@@ -356,7 +356,6 @@
         <div class="modal-footer">
             <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left">Attend Only</button>
             <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveTwit()" ng-disabled="modTwitTalkForm.$invalid">Save</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         </div>
     </div>
     <!-- Edit Twit User Modal -->
@@ -413,11 +412,11 @@
                 <h3>USER INFO</h3>
                 <ng-form name="modSimpleUserForm" class="row-border" novalidate>
                     <div class="form-group">
-                        <label class="control-label">Name</label>
+                        <label class="control-label">* Name</label>
                         <input type="text" ng-model="userObj.displayName" class="form-control" placeholder="First and Last Name..." required />
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Description</label>
+                        <label class="control-label">* Description</label>
                         <textarea class="form-control" ng-model="userObj.description" rows="5" placeholder="A short description of your talk..." required></textarea>
                     </div>
                     <div class="form-group">
