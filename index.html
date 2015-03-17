@@ -70,7 +70,7 @@
 					BNMC Innovation Center<br>
 					FREE Admission!
 				</h2>
-                <p class="info" ng-if="maxUserLimitReached">Buffalo Unconference has reached capacity! Please stop by next year.</p>
+				<p class="alert alert-primary" ng-if="maxUserLimitReached"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
 				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
@@ -93,15 +93,12 @@
 <section id="speakers">
 	<div class="container" ng-controller="AttendeeController">
         <div class="span12 hero-unit text-center white">
-            <h1>{{300 - userCount}} spots left!</h3>
+            <h2>{{300 - userCount}} spots left!</h2>
         </div>
         <!-- Speaker Row -->
 		<div class="row" id="speaker-row">
-			<div class="span12 hero-unit text-center white">
-				<a ng-hide="!isLoggedIn" class="btn btn-lg pull-right" href="" ng-click="openEditProfile()"><i class="fa fa-bullhorn"></i> Edit Talk</a>
-				<h2>{{speakerCount}} Presenters</h2>
-			</div>
-			<div class="span12">
+			<div class="span12 text-center white">
+				<h3>{{speakerCount}} Presenters</h3>
 				<div class="dudes">
 					<ul>
 						<li data-ng-repeat="attendee in attendees | orderBy:'displayName'">
@@ -110,7 +107,7 @@
                                 <div class="card" id="speaker-card">
 									<div class="card-title">
                                     	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
-										<h3>{{attendee.displayName}}</h3>
+										<h4>{{attendee.displayName}}</h4>
 										<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a><span ng-show="attendee.url"> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></span></p>
 										<p>{{attendee.description}}</p>
 									</div>
@@ -126,7 +123,7 @@
                                 <div class="card">
                                     <div class="card-title">
 										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
-										<h3>{{attendee.displayName}}</h3>
+										<h4>{{attendee.displayName}}</h4>
                                     	<p>{{attendee.description}}</p>
 									</div>
 									<div class="card-body">
@@ -145,22 +142,47 @@
         
         <!-- Attendee Row -->
         <div class="row">
-			<div class="span12 hero-unit text-center white">
-				<h2>{{attendeeCount}} Attendees</h2>
-			</div>
-			<div class="span12">
-				<div class="dudees">
+			<div class="span12 text-center white">
+				<h3>{{attendeeCount}} Attendees</h3>
+				<div class="dudes" id="Presenters">
 					<ul>
 						<li data-ng-repeat="attendee in attendees | orderBy:'displayName'">
                             <div ng-show="attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
 								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.username}}"><img ng-src="{{attendee.imgs.profile_image_url}}" height="48" width="48" alt="@attendee.userame"></a>
+								<div class="card" id="speaker-card">
+									<div class="card-title">
+                                    	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
+										<h4>{{attendee.displayName}}</h4>
+										<p><a ng-href="https://twitter.com/{{attendee.username}}" target="_blank">@{{attendee.username}}</a><span ng-show="attendee.url"> &bull; <a ng-href="{{attendee.url}}" target="_blank">Website</a></span></p>
+										<p>{{attendee.description}}</p>
+									</div>
+									<div class="card-body">
+										<h4 ng-show="attendee.talk.submitted">{{attendee.talk.topic}}</h4>
+										<p ng-show="attendee.talk.submitted">{{attendee.talk.description}}</p>
+										<p ng-show="attendee.talk.attendOnly">I'm attending but not presenting</p>
+									</div>
+                                </div>
                             </div>
                             <div ng-show="!attendee.username && attendee.talk.attendOnly"> <!--Using the fact that only twitter user have usernames to differentiate XD-->
 								<a href="#" class="thumb" onclick="showCard($(this)); return false;" title="{{attendee.displayName}}"><img gravatar-src-once="attendee.email" height="48" width="48" alt=""></a>
+								 <div class="card">
+                                    <div class="card-title">
+										<a href="#" class="close" onclick="closeCard(); return false;">x</a>
+										<h4>{{attendee.displayName}}</h4>
+                                    	<p>{{attendee.description}}</p>
+									</div>
+									<div class="card-body">
+										<h4 ng-show="attendee.talk.submitted">{{attendee.talk.topic}}</h4>
+										<p ng-show="attendee.talk.submitted">{{attendee.talk.description}}</p>
+										<p ng-show="attendee.talk.attendOnly">I'm attending but not presenting</p>
+									</div>
+                                </div>
                             </div>
 						</li>
 					</ul>
 				</div>
+				<p ng-hide="isLoggedIn" ><br><a class="btn btn-lg" href="" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register Now</a></p>
+				<p ng-hide="!isLoggedIn" ><br><a class="btn btn-lg" href="" ng-click="openEditProfile()"><i class="fa fa-bullhorn"></i> Edit Talk</a></p>
 			</div>
 		</div>
         <!-- End Attendee Row -->
@@ -280,6 +302,12 @@
 				<a href="http://www.z80labs.com/" target="_blank"><img src="img/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
 			</div>
 		</div>
+		<div class="row">
+			<div class="span4"></div>
+			<div class="span4 text-center">
+				<a href="http://www.headsupdisplay.co/" target="_blank"><img src="img/sponsors/headsup_grey.png" alt="Heads Up Display" class="sponsor-logo"></a>
+			</div>
+		</div> 
 	</div>
 </section>
 

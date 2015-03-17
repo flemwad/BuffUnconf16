@@ -67,7 +67,7 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, AttendeeS
 function showCard(pic) {
 	closeCard();
 	pic.next().addClass('open');
-	pic.next().appendTo('.dudes');
+	pic.next().appendTo('#Presenters');
 	pic.addClass('origin');
 }
 
