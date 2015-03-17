@@ -8,10 +8,9 @@ angular
     '$global',
     '$timeout',
     '$rootScope',
-    '$anchorScroll',
     '$location',
     'UserService',
-function ($scope, $firebase, $global, $timeout, $rootScope, $anchorScroll, $location, UserService) {
+function ($scope, $firebase, $global, $timeout, $rootScope, $location, UserService) {
     
     $scope.isLoggedIn = $global.isLoggedIn;
     $scope.maxUserLimitReached = false;
@@ -51,9 +50,6 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $anchorScroll, $loca
     $scope.editTalk = function () {
         if($scope.isTwitterLogin) $rootScope.$broadcast('editTwitTalkClicked');
         else $rootScope.$broadcast('editSimpleTalkClicked');
-        
-        $location.hash('topbar');
-        $anchorScroll();
     };
     
     if($scope.isLoggedIn) $scope.initModifyModal();
