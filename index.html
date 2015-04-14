@@ -70,7 +70,7 @@
 					BNMC Innovation Center<br>
 					FREE Admission!
 				</h2>
-				<p class="alert alert-primary" ng-if="maxUserLimitReached"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
+				<p class="alert alert-primary" ng-if="maxUserLimitReached && !isLoggedIn"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
 				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
