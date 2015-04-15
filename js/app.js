@@ -34,7 +34,7 @@ angular
 function ($scope, $global, $rootScope, $timeout) {
 
     $scope.isLoggedIn = $global.isLoggedIn;
-    $scope.maxUserLimitReached = false;
+    $scope.maxUserLimitReached = true;
     
     $rootScope.$on('maxLimitReached', function () {
         $scope.maxUserLimitReached = $global.maxUserLimitReached;

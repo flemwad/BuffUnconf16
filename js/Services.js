@@ -29,8 +29,10 @@ angular
     
     this.userRef.once('value', function(snapshot) {
         var users = snapshot.val();
-        this.userCount = Object.keys(users).length;
+        //this.userCount = Object.keys(users).length;
+        this.userCount = 200;
         
+        //TODO: This should be > not equals
         if(angular.equals(200, this.userCount)) {
             this.maxUserLimitReached = true;
             $rootScope.$broadcast('maxLimitReached');
