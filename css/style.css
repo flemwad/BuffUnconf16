@@ -417,6 +417,9 @@ nav select {
 #schedule {
 	background: #E7EBED;
 }
+#map {
+	background: #FFFFFF;
+}
 #workshops {
 	background: #d6b329;
 }
@@ -437,7 +440,6 @@ nav select {
 #newsletter {
 	background: #E7EBED;
 	padding: 60px 0;
-	display: none;
 }
 #map {
 	background: #4C5D67;

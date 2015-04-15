@@ -53,6 +53,7 @@
 						<div class="nav-collapse collapse">
 							<ul id="mainnav" class="nav  ng-cloak">
 								<li><a href="#intro">About</a></li>
+                                <li><a href="#newsletter">Newsletter</a></li>
                                 <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
                                 <li><a href="#schedule">Schedule</a> </li>
@@ -80,8 +81,9 @@
 					BNMC Innovation Center<br>
 					FREE Admission!
 				</h2>
-				<p class="alert alert-primary" ng-if="maxUserLimitReached && !isLoggedIn"><b>Sorry, Buffalo Unconference has reached capacity!</b></p>
-				<a href="" class="btn btn-lg btn-primary ng-cloak" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
+				<p class="alert alert-primary"><b>Sorry, Buffalo Unconference has reached capacity!</b><br />
+                Sign-Up for our newsletter, so you can attend the next event.</p>
+				<!--a href="" class="btn btn-lg btn-primary ng-cloak" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a -->
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
 	</div>
@@ -100,6 +102,54 @@
 	</div><!-- end container --> 
 </section>	
 
+<section id="newsletter">
+	<div class="container">
+		<div class="row">
+			<div class="span12 hero-unit text-center">
+				<h2>Subscribe to Our Newsletter</h2>
+				<p>Learn more about Buffalo Unconference</p>
+			</div>
+			<div class=""> 
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+						<form action="//headsupdisplay.us1.list-manage.com/subscribe/post?u=5f6e4a442d745b9c7b5f85033&amp;id=eea653c897" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<div id="mc_embed_signup_scroll">
+								<div class="indicates-required text-center">
+									<span class="asterisk">*</span> indicates required
+								</div>
+								<div class="mc-field-group control-group span4">
+									<label for="mce-EMAIL" class="control-label">Email Address  <span class="asterisk">*</span></label>
+									<input type="email" value="" name="EMAIL" class="required email input-block-level" id="mce-EMAIL">
+								</div>
+								<div class="mc-field-group control-group span4">
+									<label for="mce-FNAME" class="control-label">First Name </label>
+									<input type="text" value="" name="FNAME" class="input-block-level" id="mce-FNAME">
+								</div>
+								<div class="mc-field-group control-group span4">
+									<label for="mce-LNAME" class="control-label">Last Name </label>
+									<input type="text" value="" name="LNAME" class="input-block-level" id="mce-LNAME">
+								</div>
+								<div id="mce-responses" class="clear">
+									<div class="response" id="mce-error-response" style="display:none"></div>
+									<div class="response" id="mce-success-response" style="display:none"></div>
+								</div>
+								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+								<div style="position: absolute; left: -5000px;"><input type="text" name="b_5f6e4a442d745b9c7b5f85033_eea653c897" tabindex="-1" value=""></div>
+								<div class="clear text-right">
+									<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+								</div>
+							</div>
+						</form>
+					</div>
+					<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+					<!--End mc_embed_signup-->
+			</div>
+		</div>
+		<!-- end row --> 
+	</div>
+	<!-- end container --> 
+</section>
+    
 <section id="speakers">
 	<div class="container ng-cloak" ng-controller="AttendeeController">
         <div class="span12 hero-unit text-center white">
@@ -229,48 +279,6 @@
 				<div class="icon-wrap large color3"><i class="fa fa-bullhorn"></i> </div>
 				<h3>Talks</h3>
 				<p>Speakers will be given 25 minutes to split, as they choose, between presentation and discussion.  Attendees may attend any talk, on any track, based on their preferences.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section id="newsletter">
-	<div class="container">
-		<div class="row">
-			<div class="span12 hero-unit text-center">
-				<h2>Subscribe to Our Newsletter</h2>
-				<p>Learn more about Buffalo's Unconference</p>
-			</div>
-			<div class=""> 
-					<!-- Begin MailChimp Signup Form -->
-					<div id="mc_embed_signup">
-						<form action="//headsupdisplay.us1.list-manage.com/subscribe/post?u=5f6e4a442d745b9c7b5f85033&amp;id=eea653c897" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<div id="mc_embed_signup_scroll">
-								<div class="mc-field-group control-group span4">
-									<label for="mce-EMAIL" class="control-label">Email Address  <span class="asterisk">*</span></label>
-									<input type="email" value="" name="EMAIL" class="required email input-block-level" id="mce-EMAIL">
-								</div>
-								<div class="mc-field-group control-group span4">
-									<label for="mce-FNAME" class="control-label">First Name </label>
-									<input type="text" value="" name="FNAME" class="input-block-level" id="mce-FNAME">
-								</div>
-								<div class="mc-field-group control-group span4">
-									<label for="mce-LNAME" class="control-label">Last Name </label>
-									<input type="text" value="" name="LNAME" class="input-block-level" id="mce-LNAME">
-								</div>
-								<div id="mce-responses" class="clear">
-									<div class="response" id="mce-error-response" style="display:none"></div>
-									<div class="response" id="mce-success-response" style="display:none"></div>
-								</div>
-								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-								<div style="position: absolute; left: -5000px;"><input type="text" name="b_5f6e4a442d745b9c7b5f85033_eea653c897" tabindex="-1" value=""></div>
-								<div class="clear text-right">
-									<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-								</div>
-							</div>
-						</form>
-					</div>
-					<script type='text/javascript' src='http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 			</div>
 		</div>
 	</div>
