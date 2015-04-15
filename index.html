@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Buffalo Unconference - April 18, 2015 - Sponsored by AT&amp;T</title>
+	<title>Buffalo Unconference - April 18, 2015 - Powered by AT&amp;T</title>
 	
 	<meta name="description" content="Buffalo's Unconference - April 18, 2015 9:00 AM - 5:00 PM - Sponsored by AT&amp;T. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." />
 	<meta name="author" content="Clark Dever, Tyler Flemming, Mike Spencer" />
@@ -20,7 +20,13 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/jquery.countdown.css" />
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    </style>
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -30,6 +36,8 @@
     <meta property="og:site_name" content="Buffalo Unconference"/>
     <meta property="og:description" content="Buffalo Unconference (Sponsored by AT&T) is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love." />
     <meta property="og:image" content="http://www.buffalounconference.com/img/BuffaloUnconference.jpg" />
+    
+    
 </head>
 
 <body ng-app="buffaloUnconference" ng-cloak>
@@ -43,7 +51,7 @@
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 					<nav class="hidden">
 						<div class="nav-collapse collapse">
-							<ul id="mainnav" class="nav">
+							<ul id="mainnav" class="nav  ng-cloak">
 								<li><a href="#intro">About</a></li>
                                 <li><a href="#speakers">Speakers</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
@@ -70,8 +78,8 @@
 					BNMC Innovation Center<br>
 					FREE Admission!
 				</h2>
-				<p class="alert alert-primary" ng-if="maxUserLimitReached && !isLoggedIn"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
-				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
+				<p class="alert alert-primary" ng-if="maxUserLimitReached && !isLoggedIn"><b>Sorry, Buffalo Unconference has reached capacity!</b></p>
+				<a href="" class="btn btn-lg btn-primary ng-cloak" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
 	</div>
@@ -91,7 +99,7 @@
 </section>	
 
 <section id="speakers">
-	<div class="container" ng-controller="AttendeeController">
+	<div class="container ng-cloak" ng-controller="AttendeeController">
         <div class="span12 hero-unit text-center white">
             <h2>{{200 - userCount}} spots left!</h2>
         </div>
