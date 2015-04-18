@@ -1363,7 +1363,7 @@ a.instagram:hover {
 	margin-bottom: 10px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
 	.tab-fillspace li {
 		background: transparent;
 		display: table-cell;
