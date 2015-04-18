@@ -1358,23 +1358,32 @@ a.instagram:hover {
 	left: 0;
 	position: relative;
 }
+
 .tab-fillspace li {
-	background: transparent;
-	display: table-cell;
-	float: none;
-	width: 1%;
+	margin-bottom: 10px;
 }
-.tab-fillspace li:after {
+
+@media screen and (min-width: 600px) {
+	.tab-fillspace li {
+		background: transparent;
+		display: table-cell;
+		float: none;
+		width: 1%;
+		margin: 0;
+	}
+	.tab-fillspace li:after {
+	}
+	.tab-fillspace li.active {
+	}
+	.tab-fillspace li.active:after {
+		background: url("../img/tri_down_dark.png") no-repeat scroll 50% 0 transparent;
+		content: "";
+		display: block;
+		height: 7px;
+		position: relative;
+	}
 }
-.tab-fillspace li.active {
-}
-.tab-fillspace li.active:after {
-	background: url("../img/tri_down_dark.png") no-repeat scroll 50% 0 transparent;
-	content: "";
-	display: block;
-	height: 7px;
-	position: relative;
-}
+
 .tab-fillspace li a {
 	font-size: 18px;
 	font-weight: 700;
