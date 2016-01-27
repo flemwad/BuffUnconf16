@@ -31,7 +31,7 @@ angular
         var users = snapshot.val();
         this.userCount = Object.keys(users).length;
         
-        if(angular.equals(300, this.userCount)) {
+        if(angular.equals(250, this.userCount)) {
             this.maxUserLimitReached = true;
             $rootScope.$broadcast('maxLimitReached');
         }
@@ -39,7 +39,7 @@ angular
         Object.keys(users).forEach(function(key) {
             var userObj = users[key];
             
-            if(userObj.talk.submitted) this.speakerCount++;
+            if(userObj.talk && userObj.talk.submitted) this.speakerCount++;
             else this.attendeeCount++;
         }, this);
         

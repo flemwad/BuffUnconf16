@@ -1,5 +1,7 @@
 // Eventify, Responsive HTML5 Event Template - Version 1.1 //
 
+//Crappy inherited template code. Oh except for the countdown timer. That's pretty neat.
+
 // Javascripts //
 $(document).ready(function () {
 	
@@ -95,7 +97,7 @@ $(document).ready(function () {
 	
 	// Countdown //
 	$('#countdown').countdown({
-		until: new Date(2015, 3, 18, 9, 0, 0), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
+		until: new Date(2016, 3, 16, 10, 0, 0), // new Date(year, mth - 1, day, hr, min, sec) - date/time to count down to 
 		// or numeric for seconds offset, or string for unit offset(s): 
 		// 'Y' years, 'O' months, 'W' weeks, 'D' days, 'H' hours, 'M' minutes, 'S' seconds 
 		// until: '-1m +1d', for demo
