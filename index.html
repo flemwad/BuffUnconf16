@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Buffalo Unconference - April 18, 2015 - Powered by AT&amp;T</title>
+	<title>Buffalo Unconference - April 18, 2015</title>  <!--- Sponsored by AT&amp;T-->
 	
-	<meta name="description" content="Buffalo's Unconference - April 18, 2015 9:00 AM - 5:00 PM - Powered by AT&amp;T. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." />
-	<meta name="author" content="Clark Dever, Tyler Flemming, Mike Spencer" />
+	<meta name="description" content="Buffalo's Unconference - April 16, 2016 10:00 AM - 4:00 PM. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." /> <!--- Sponsored by AT&amp;T-->
+	<meta name="author" content="Clark Dever, Tyler Flemming, Mike Spencer, Wes Csendom" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<link rel="apple-touch-icon" href="img/touch-icon-iphone.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png">
+	<link rel="shortcut icon" href="assets/img/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/img/touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/img/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/img/touch-icon-ipad-retina.png">
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css" />
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/jquery.countdown.css" />
-	<style>
-    .ng-cloak {
-      display: none !important;
-    }
-    </style>
-    
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/jquery.countdown.css" />
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
     
     <meta property="og:url" content="http://www.buffalounconference.com" />
-    <meta property="og:title"  content="Announcing Buffalo Unconference - April 18th, 2015" />
+    <meta property="og:title"  content="Announcing Buffalo Unconference - April 16th, 2016" />
     <meta property="og:site_name" content="Buffalo Unconference"/>
-    <meta property="og:description" content="Buffalo Unconference (Powered by AT&T) is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love." />
-    <meta property="og:image" content="http://www.buffalounconference.com/img/BuffaloUnconference.jpg" />
-    
-    
+    <meta property="og:description" content="Buffalo Unconference  is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love." /> <!--(Sponsored by AT&T)-->
+    <meta property="og:image" content="http://www.buffalounconference.com/assets/img/BuffaloUnconference.jpg" />
 </head>
 
 <body ng-app="buffaloUnconference" ng-cloak>
@@ -46,22 +38,23 @@
 	<div class="container" ng-controller="HeaderController">
 		<div class="row">
 			<div class="span12">
-				<a class="logo pull-left" href="#intro"><span><img src="img/logo.png" height="72" alt="Buffalo Unconference"></span></a>
+				<a class="logo pull-left" href="#intro"><span><img src="assets/img/logo.png" height="72" alt="Buffalo Unconference"></span></a>
                 <div class="navbar main-nav pull-right">
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 					<nav class="hidden">
 						<div class="nav-collapse collapse">
-							<ul id="mainnav" class="nav  ng-cloak">
-								<li><a href="#intro">About</a></li>
-                                <li><a href="#newsletter">Newsletter</a></li>
+							<ul id="mainnav" class="nav">
+								<li><a href="#intro">Intro</a></li>
                                 <li><a href="#speakers">Speakers</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#newsletter">Newsletter</a></li>
 								<li><a href="#sponsors">Sponsors</a></li>
-                                <li><a href="#schedule">Schedule</a> </li>
-                                <li><a href="#map">Map</a></li>
                                 <li><a href="#venue">Contact</a></li>
-                                <!--li ng-hide="isLoggedIn"><a id="register-button" href="" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register</a></li>
-								<li ng-hide="!isLoggedIn" ng-if="isTwitterLogin"><a id="modify-twit-button" href="" data-target="#editTwitTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Talk</a></li>
-                                <li ng-hide="!isLoggedIn" ng-if="!isTwitterLogin"><a id="modify-simple-button" href="" data-target="#editSimpleTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Info</a></li -->
+                                
+                                <!--
+                                <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-if="!maxUserLimitReached" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-disabled="true">Register</a></li>
+								<li ng-hide="!isLoggedIn" ng-if="isTwitterLogin && false"><a id="modify-twit-button" href="" data-target="#editTwitTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Talk</a></li>
+                                <li ng-hide="!isLoggedIn" ng-if="!isTwitterLogin && false"><a id="modify-simple-button" href="" data-target="#editSimpleTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Info</a></li> -->
 							</ul>
 						</div>
 					</nav>
@@ -75,15 +68,13 @@
 	<div class="container" ng-controller="AppController">
 		<div class="row jumbotron">
 			<div class="span12 text-center">
-				<p class="info">Powered by AT&amp;T</p>
-				<h1>April 18, 2015</h1>
-				<h2>9:00 AM - 5:00 PM<br>
-					BNMC Innovation Center<br>
-					FREE Admission!
+				<p class="info">Sponsored by AT&amp;T</p>
+				<h1>April 16, 2016</h1>
+				<h2>10:00 AM - 4:00 PM<br>
+					VCAMP<br>
 				</h2>
-				<p class="alert alert-primary"><b>Sorry, Buffalo Unconference has reached capacity!</b><br />
-                Sign-Up for our newsletter, so you can attend the next event.</p>
-				<!--a href="" class="btn btn-lg btn-primary ng-cloak" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached">Register</a -->
+				<p class="alert alert-primary" ng-if="maxUserLimitReached"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
+				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached" ng-disabled="true">Registration coming soon</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
 	</div>
@@ -91,58 +82,21 @@
 </section>
 <!-- end intro section --> 
 
-<section id="newsletter">
+<section id="ticker">
 	<div class="container">
 		<div class="row">
-			<div class="span12 hero-unit text-center">
-				<h2>Subscribe to Our Newsletter</h2>
-				<p>Learn more about Buffalo Unconference</p>
-			</div>
-			<div class=""> 
-					<!-- Begin MailChimp Signup Form -->
-					<div id="mc_embed_signup">
-						<form action="//headsupdisplay.us1.list-manage.com/subscribe/post?u=5f6e4a442d745b9c7b5f85033&amp;id=eea653c897" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<div id="mc_embed_signup_scroll">
-								<div class="indicates-required text-center">
-									<span class="asterisk">*</span> indicates required
-								</div>
-								<div class="mc-field-group control-group span4">
-									<label for="mce-EMAIL" class="control-label">Email Address  <span class="asterisk">*</span></label>
-									<input type="email" value="" name="EMAIL" class="required email input-block-level" id="mce-EMAIL">
-								</div>
-								<div class="mc-field-group control-group span4">
-									<label for="mce-FNAME" class="control-label">First Name </label>
-									<input type="text" value="" name="FNAME" class="input-block-level" id="mce-FNAME">
-								</div>
-								<div class="mc-field-group control-group span4">
-									<label for="mce-LNAME" class="control-label">Last Name </label>
-									<input type="text" value="" name="LNAME" class="input-block-level" id="mce-LNAME">
-								</div>
-								<div id="mce-responses" class="clear">
-									<div class="response" id="mce-error-response" style="display:none"></div>
-									<div class="response" id="mce-success-response" style="display:none"></div>
-								</div>
-								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-								<div style="position: absolute; left: -5000px;"><input type="text" name="b_5f6e4a442d745b9c7b5f85033_eea653c897" tabindex="-1" value=""></div>
-								<div class="clear text-right">
-									<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-								</div>
-							</div>
-						</form>
-					</div>
-					<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-					<!--End mc_embed_signup-->
-			</div>
-		</div>
-		<!-- end row --> 
-	</div>
-	<!-- end container --> 
-</section>
-    
+			<div id="countdown" class="clearfix"></div>
+			<div class="span12 register-box text-center">
+				<h2 class="register-title">Until Buffalo's Unconference</h2>
+            </div>
+		</div><!-- end row --> 
+	</div><!-- end container --> 
+</section>	
+
 <section id="speakers">
-	<div class="container ng-cloak" ng-controller="AttendeeController">
+	<div class="container" ng-controller="AttendeeController">
         <div class="span12 hero-unit text-center white">
-            <h2>{{200 - userCount}} spots left!</h2>
+            <h2>{{250 - userCount}} spots left!</h2>
         </div>
         <!-- Speaker Row -->
 		<div class="row" id="speaker-row">
@@ -230,7 +184,8 @@
 						</li>
 					</ul>
 				</div>
-				<p ng-hide="!isLoggedIn" ><br><a class="btn btn-lg" href="" ng-click="openEditProfile()"><i class="fa fa-bullhorn"></i> Edit Talk</a></p>
+				<!--<p ng-hide="isLoggedIn" ><br><a class="btn btn-lg" href="" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-if="!maxUserLimitReached">Register Now</a></p>
+				<p ng-hide="true && !isLoggedIn" ><br><a class="btn btn-lg" href="" ng-click="openEditProfile()"><i class="fa fa-bullhorn"></i> Edit Talk</a></p>-->
 			</div>
 		</div>
         <!-- End Attendee Row -->
@@ -273,1062 +228,121 @@
 	</div>
 </section>
 
+<section id="newsletter">
+	<div class="container">
+		<div class="row">
+			<div class="span12 hero-unit text-center">
+				<h2>Subscribe to Our Newsletter</h2>
+				<p>Learn more about Buffalo's Unconference</p>
+			</div>
+			<div class=""> 
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+						<form action="//headsupdisplay.us1.list-manage.com/subscribe/post?u=5f6e4a442d745b9c7b5f85033&amp;id=eea653c897" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<div id="mc_embed_signup_scroll">
+								<div class="mc-field-group control-group span4">
+									<label for="mce-EMAIL" class="control-label">Email Address  <span class="asterisk">*</span></label>
+									<input type="email" value="" name="EMAIL" class="required email input-block-level" id="mce-EMAIL">
+								</div>
+								<div class="mc-field-group control-group span4">
+									<label for="mce-FNAME" class="control-label">First Name </label>
+									<input type="text" value="" name="FNAME" class="input-block-level" id="mce-FNAME">
+								</div>
+								<div class="mc-field-group control-group span4">
+									<label for="mce-LNAME" class="control-label">Last Name </label>
+									<input type="text" value="" name="LNAME" class="input-block-level" id="mce-LNAME">
+								</div>
+								<div id="mce-responses" class="clear">
+									<div class="response" id="mce-error-response" style="display:none"></div>
+									<div class="response" id="mce-success-response" style="display:none"></div>
+								</div>
+								<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+								<div style="position: absolute; left: -5000px;"><input type="text" name="b_5f6e4a442d745b9c7b5f85033_eea653c897" tabindex="-1" value=""></div>
+								<div class="clear text-right">
+									<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+								</div>
+							</div>
+						</form>
+					</div>
+					<script type='text/javascript' src='http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section id="sponsors">
 	<div class="container">
 		<div class="row">
 			<div class="span12 hero-unit text-center">
-				<h2>Powered by AT&amp;T</h2>
+				<h2>Sponsored by AT&amp;T</h2>
 			</div>
 			<div class="span12 text-center">
-				<a href="http://www.att.com/" target="_blank"><img src="img/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
+				<a href="http://www.att.com/" target="_blank"><img src="assets/img/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span12 text-center">
 				<h3>Additional Sponsors</h3>
 			</div>
-			<div class="span4 text-center">
-				<a href="http://infotechniagara.org/" target="_blank"><img src="img/sponsors/infotechniagara.png" alt="Infotech Niagara" class="sponsor-logo"></a>
+            <div class="span4 text-center">
+				<a href="http://www.vcamp.co/#/" target="_blank"><img src="assets/img/sponsors/vcamp.png" alt="VCAMP" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.43north.org/" target="_blank"><img src="img/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
+				<a href="http://infotechniagara.org/" target="_blank"><img src="assets/img/sponsors/infotechniagara.png" alt="Infotech Niagara" class="sponsor-logo"></a>
+			</div>
+            <div class="span4 text-center">
+				<a href="https://www.startupgrind.com/buffalo/" target="_blank"><img src="assets/img/sponsors/startupgrind.png" alt="Startup Grind Buffalo" class="sponsor-logo"></a>
+			</div>
+<!--		<div class="span4 text-center">
+				<a href="http://www.43north.org/" target="_blank"><img src="assets/img/sponsors/43north_grey.png" alt="43 North" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.s1search.com/" target="_blank"><img src="img/sponsors/selectone_grey.png" alt="SelectOne Search" class="sponsor-logo"></a>
+				<a href="http://www.s1search.com/" target="_blank"><img src="assets/img/sponsors/selectone_grey.png" alt="SelectOne Search" class="sponsor-logo"></a>
 			</div>
+-->
 		</div>
 		<div class="row">
-			<div class="span4 text-center">
-				<a href="http://algonquinstudios.com/" target="_blank"><img src="img/sponsors/algonquin_grey.png" alt="Algonquin Studios" class="sponsor-logo"></a>
+<!--		<div class="span4 text-center">
+				<a href="http://algonquinstudios.com/" target="_blank"><img src="assets/img/sponsors/algonquin_grey.png" alt="Algonquin Studios" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://digbuffalo.org/" target="_blank"><img src="img/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
+				<a href="http://digbuffalo.org/" target="_blank"><img src="assets/img/sponsors/dig.png" alt="d!g" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://www.z80labs.com/" target="_blank"><img src="img/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
+				<a href="http://www.z80labs.com/" target="_blank"><img src="assets/img/sponsors/z80_grey.png" alt="z80" class="sponsor-logo"></a>
 			</div>
+-->
 		</div>
 		<div class="row">
 			<div class="span4"></div>
-			<div class="span4 text-center">
-				<a href="http://www.headsupdisplay.co/" target="_blank"><img src="img/sponsors/headsup_grey.png" alt="Heads Up Display" class="sponsor-logo"></a>
+<!--
+                <div class="span4 text-center">
+				<a href="http://www.headsupdisplay.co/" target="_blank"><img src="assets/img/sponsors/headsup_grey.png" alt="Heads Up Display" class="sponsor-logo"></a>
 			</div>
+-->
+            
 		</div> 
 	</div>
 </section>
-    
-    
-<section id="schedule">
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<div class="module-header schedule-header">
-					<h4>Schedule</h4>
-				</div>
-				<!-- end module-header --> 
-			</div>
-			<!-- end span12 -->
-			<div class="span12"> 
-				<!-- Tabs -->
-				<ul id="schedule-tabs" class="nav nav-pills tab-fillspace ">
-					<li class="active"><a href="#overview" data-toggle="tab">Overview</a> </li>
-					<li class=""><a href="#oishei" data-toggle="tab">Oishei</a> </li>
-					<li class=""><a href="#jacobs" data-toggle="tab">Jacobs</a> </li>
-					<li class=""><a href="#talbert" data-toggle="tab">Talbert</a></li>
-					<li class=""><a href="#rich" data-toggle="tab">Rich</a></li>
-					<li class=""><a href="#dig1" data-toggle="tab">Dig 1</a></li>
-					<li class=""><a href="#dig2" data-toggle="tab">Dig 2</a></li>
-				</ul>
-				<!-- end tabs --> 
-			</div>
-			<!-- end span12 -->
-			<div class="tab-content">
-				<div class="tab-pane wo-tab-pane fade in active" id="overview"> 
-					<!-- DAY ONE -->
-					<div class="span4">
-						<h2>Get Ready!</h2>
-						<p>Speaking slots fill up on a first-come, first-served basis - so show up promptly at 9am to make sure you get a prime location and time for your talk!  We believe that the best part of any conference is the attendees, so we're scheduling plenty of breaks so you have time to chat. On the day of the event, conference rooms will be labeled to show which projectors support HDMI and which support VGA (If you're an apple user, bring your adapter).</p>
-						<div><p>(Click on the topics to the right for more details)</p></div>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>09:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Meet and Eat</h3>
-											<h4>Thanks to our Sponsors!</h4>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Nosh on some bagels and grab a cup of joe.  We know that waking up early on the weekend is rough, so we're supporting your dedication with some breakfast snacks.  This is a great time to meet some folks and schedule the time and location of your talk.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>First Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 --> 
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Second Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-coffee"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Third Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-							<!-- EVENT 5 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-dialogue-box"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>A Free Lunch</h3>
-											<h4>Support our Sponsors, there's no such thing as a free lunch.</h4>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>After some brief remarks about how thankful we are to have you at the event and how appreciative we are to have sponsors who paid for all the awesome food we're about to grub out on. We'll be catering with traditional conference fair - Pizza, Wings, Salad and an assortment of beverages.  Eat, Talk, Share.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 5 --> 
-							<!-- EVENT 6 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-sun"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Fourth Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 6 --> 
-							<!-- EVENT 7 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Fifth Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 7 --> 
-							<!-- EVENT 8 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Sixth Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 8 --> 
-							<!-- EVENT 9 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-videocam"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Snack Attack!</h3>
-											<h4>We &lt;3 Our Sponsors!</h4>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>You've spent 3 hours of your day listening to folks talk about a wide variety of subjects.  We bet you're fading.  No problem though!  We have Cookies, Veggies, and MOAR COFFEE!!!  Take a half hour to chat with your new friends while we boost your energy.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 9 --> 
-							<!-- EVENT 10 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-pencil2"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Seventh Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 10 --> 
-							<!-- EVENT 11 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-pencil2"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Eighth Talks</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>Who's speaking? We don't know! You have to show up to schedule your talk, check back here the day of the event for photo schedules for each track.</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 11 -->
-							<!-- EVENT 12 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-pencil2"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>16:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Wrap up? More Talks? It depends!</h3>
-										</div>
-										<div class="toggle-item-body" style="display: none;">
-											<p>We can extend the conference if we need to, but if everyone has had a chance to present - we might just clean up and go home.  We'll know on Saturday!</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 12 -->
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="oishei"> 
-					<!-- oishei -->
-					<div class="span4">
-						<h2>Oishei</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Brian Castner of VICE</h3>
-											<p>2 time published author</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Michael McGreevy - Buffalo's Insecurity</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 --> 
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Joe Peters - What is Bitcoin?</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-coffee"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Sarah Dietrich - Behavior</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-							<!-- EVENT 5 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-dialogue-box"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Edreys Wajed - Fear, Committment, Change</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 5 --> 
-							<!-- EVENT 6 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-sun"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>David Brenner - Lean enough electronics to build a robot</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 6 --> 
-							<!-- EVENT 7 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Clark Dever - Take Better Photos</h3>
-											<p>Nationally published / award winning photographer</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 7 --> 
-							<!-- EVENT 8 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>DJ Spruke - How to DJ Off a Laptop</h3>
-											<p>Live audo demo!</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 8 --> 
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="jacobs"> 
-					<!-- jacobs -->
-					<div class="span4">
-						<h2>Jacobs</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Matthew Pekley of Black Squirrel - Starting a distillery</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Ryan Brown - Scaling Ops Teams w/ Declarative Tools</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 --> 
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Liz Callahan - Industry and Overcoming the Skills Gap</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>David Haravy - Power + Accessibility of Marketing for the Public Sector</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Joe Chimera - What is integrated marketing? Why should you use it?</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="talbert"> 
-					<!-- jacobs -->
-					<div class="span4">
-						<h2>Talbert</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Kristin Badger-Bach - Market Strategy Positioning</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Joox - What if you could personalize everything?</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 -->
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Pete Herr - Kinds need you entrepreneurs</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 -->
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="rich"> 
-					<!-- rich -->
-					<div class="span4">
-						<h2>Rich</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>David Collican - Launch New York - Ecosystem Update</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Matt Lehner - Jasper on the Raspberry Pi</h3>
-											<p>It's Siri for your Pi</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 -->  
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="dig1"> 
-					<!-- dig1 -->
-					<div class="span4">
-						<h2>Dig 1</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Gloria Zimner - Brand Motherhood</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Peter Cimino - Go Geocaching</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 --> 
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Pat Obermeier - Branding</h3>
-											<p>Emmy Award Winner</p>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-coffee"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Todd Salansky</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-							<!-- EVENT 5 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-dialogue-box"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Buffalo Municiple Fiber</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 5 --> 
-							<!-- EVENT 6 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-sun"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Tyler Flemming - Android Wearables</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 6 --> 
-							<!-- EVENT 7 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Snacks</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 7 --> 
-							<!-- EVENT 8 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Matt - New Mutualism &amp; Community Empowerment</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 8 --> 
-							<!-- EVENT 9 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Yan - The Relentless Pursuit of Your Dream</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 9 --> 
-							<!-- EVENT 10 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>16:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Eric Wastl - Being a Better Programmer</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 10 -->
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-				<div class="tab-pane wo-tab-pane fade in active" id="dig2"> 
-					<!-- dig2 -->
-					<div class="span4">
-						<h2>Dig 2</h2>
-					</div><!-- end span4 -->
-          			<div class="span8"> 
-						<!-- TIMELINE -->
-						<section class="timeline toggle-shortcode toggles"> 
-							<!-- EVENT 1 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-wine"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Edward Tierney</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 1 --> 
-							<!-- EVENT 2 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-ok"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>10:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Charlie Wertz - Future of Work (Technology &amp; Jobs)</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 2 --> 
-							<!-- EVENT 3 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>11:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Adrian Roselli - Selfish Accessibility</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 3 --> 
-							<!-- EVENT 4 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-coffee"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Dave Bachowski - Perfection of Perfection</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 4 --> 
-							<!-- EVENT 5 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-dialogue-box"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>13:30</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Your Mom Taught You Wrong How to Properly Brush Your Teeth</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 5 --> 
-							<!-- EVENT 6 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-sun"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Startup Weekend Sports - 8 Free Startup Ideas (Dan Gigantee)</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 6 --> 
-							<!-- EVENT 7 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>14:15</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>Matt Zambito - How to defraud the stock market</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 7 -->  
-							<!-- EVENT 7 -->
-							<article class="event">
-								<div class="timeline-icon">
-									<div class="timeline-icon-container"><i class="iconf-microphone"></i> </div>
-								</div>
-								<div class="time-box">
-									<time>15:00</time>
-								</div>
-								<div class="timeline-content">
-									<div class="event-content">
-										<div class="toggle-item-title event-title" data-count="1">
-											<h3>JP Burke - An Overview of the SpaceX Falcon9 Rocket</h3>
-										</div>
-									</div>
-								</div>
-							</article>
-							<!-- end EVENT 7 -->
-						</section>
-			  		</div>
-          			<!-- end span8 --> 
-        		</div>
-      		</div>
-      		<!-- end tabs --> 
-		</div>
-    	<!-- end row --> 
-  	</div>
-  	<!-- end container --> 
-</section> <!-- /Schedule -->
 
-<section id="map">
-	<div class="container ng-cloak">
-        <!-- Speaker Row -->
-		<div class="row">
-			<div class="span12 text-center white">
-                <span><img src="img/buffalounconference-map.jpg" height="768" style="margin: 2em 0em 3em 0em;" alt="Buffalo Unconference Map"></span>
-                <a href="img/buffalounconference-map.pdf" style="margin: 0em 0em 3em 0em;" class="btn btn-lg btn-primary ng-cloak" >Download PDF</a>
-			</div>
-		</div>
-        <!-- End Speaker Row -->
-        
-	</div>
-</section>
-    
 <section id="venue" class="white">
 	<div class="container">
 		<div class="row">
 			<!-- end span12 -->
 			<div class="span6 hero-unit text-center white">
 				<h2>Venue</h2>
-				<h3>BNMC Innovation Center</h3>
-				<p>640 Ellicott Street<br>
+				<h3>VCAMP</h3>
+				<p>200 Brisbane Building,<br> 403 Main St.<br>
 					Buffalo, NY 14203<br>
 					United States</p>
 				<h2>Contact</h2>
-				<p><b>Clark Dever</b><br>
-					<a href="tel:7168033213">716-803-3213</a><br>
-					<a href="mailto:clarkdever@gmail.com?subject=Unconference">clarkdever@gmail.com</a><br>
-					<a href="https://twitter.com/clarkdever" target="_blank">@clarkdever</a></p>
+				<p><b>Tyler Flemming</b><br>
+                    <a href="tel:5185931836">518-593-1836</a><br>
+					<a href="mailto:tflem18@gmail.com?subject=Unconference">tflem18@gmail.com</a><br>
+					<a href="https://twitter.com/tflemwad" target="_blank">@tflemwad</a></p>
 			</div>
 			<div class="span6">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2922.8886974858115!2d-78.868882!3d42.896294999999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d3125bc9cd70f3%3A0x8caa00b3b3a7ddb!2sInnovation+Center-BNMC!5e0!3m2!1sen!2sus!4v1424315636708" width="800" height="300" frameborder="0" style="border:0;max-width:100%"></iframe>
+                <iframe src="https://www.google.com/maps/d/embed?mid=zcHaUlmSicN8.kFC24H9RHCes" width="800" height="300" frameborder="0" style="border:0;max-width:100%"></iframe>
 			</div>
 		</div>
 		<!-- end row --> 
@@ -1340,7 +354,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12 text-center">
-				<div class="copyright">&copy; 2015 Buffalo Unconference &nbsp; <a href="mailto:clarkdever@gmail.com?subject=Unconference">Contact</a></div>
+				<div class="copyright">&copy; 2016 Buffalo Unconference &nbsp; <a href="mailto:tflem18@gmail.com?subject=Unconference">Questions? Want to be a sponsor? Contact us!</a></div>
 			</div>
 			<!-- end span12 --> 
 		</div>
@@ -1484,15 +498,15 @@
     
 <!-- javascripts --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script>  
-<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script> 
-<script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
-<script type="text/javascript" src="js/jquery.nav.js"></script> 
-<script type="text/javascript" src="js/jquery.countdown.min.js"></script>  
+<script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="assets/plugins/bootstrap.min.js"></script>  
+<script type="text/javascript" src="assets/plugins/jquery.scrollTo-1.4.3.1-min.js"></script> 
+<script type="text/javascript" src="assets/plugins/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.nav.js"></script> 
+<script type="text/javascript" src="assets/plugins/jquery.countdown.min.js"></script>  
 
 <!--We may or may not need some of what's in here, clean it up a bit possibly-->
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="app/custom.js"></script>
 
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
@@ -1500,17 +514,18 @@
 <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
 <!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js"></script>
-<script type="text/javascript" src="js/angular-gravatar.min.js"></script>
     
+<script type="text/javascript" src="assets/plugins/angular-gravatar.min.js"></script>
+
 <!--Our js files-->
-<script type="text/javascript" src="js/Services.js"></script>
-<script type="text/javascript" src="js/RegisterController.js"></script>
-<script type="text/javascript" src="js/ModifyTwitUserController.js"></script>
-<script type="text/javascript" src="js/ModifySimpleUserController.js"></script>
-<script type="text/javascript" src="js/HeaderController.js"></script>
-<script type="text/javascript" src="js/AttendeeController.js"></script>
+<script type="text/javascript" src="app/Services.js"></script>
+<script type="text/javascript" src="app/RegisterController.js"></script>
+<script type="text/javascript" src="app/ModifyTwitUserController.js"></script>
+<script type="text/javascript" src="app/ModifySimpleUserController.js"></script>
+<script type="text/javascript" src="app/HeaderController.js"></script>
+<script type="text/javascript" src="app/AttendeeController.js"></script>
     
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
     
 <!-- Google analytics here -->
 </body>
