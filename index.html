@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Buffalo Unconference - April 18, 2015</title>  <!--- Sponsored by AT&amp;T-->
+	<title>Buffalo Unconference - April 16, 2015 Powered by AT&amp;T</title>
 	
-	<meta name="description" content="Buffalo's Unconference - April 16, 2016 10:00 AM - 4:00 PM. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." /> <!--- Sponsored by AT&amp;T-->
+	<meta name="description" content="Buffalo's Unconference - April 16, 2016 10:00 AM - 4:00 PM. Buffalo Unconference is an interactive event with discussions, demos, and plenty of time for networking between attendees. Everyone is encourage to participate, attendees create the agenda by presenting on topics that they love. Anyone with something to contribute or with the desire to learn is welcome and invited to join." /> <!--- Powered by AT&amp;T-->
 	<meta name="author" content="Clark Dever, Tyler Flemming, Mike Spencer, Wes Csendom" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,7 +28,7 @@
     <meta property="og:url" content="http://www.buffalounconference.com" />
     <meta property="og:title"  content="Announcing Buffalo Unconference - April 16th, 2016" />
     <meta property="og:site_name" content="Buffalo Unconference"/>
-    <meta property="og:description" content="Buffalo Unconference  is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love." /> <!--(Sponsored by AT&T)-->
+    <meta property="og:description" content="Buffalo Unconference  is a FREE interactive event with talks, demos, and plenty-of-time for discussions between attendees. Everyone is encouraged to participate, attendees create the agenda by presenting on topics that they love. (Powered by AT&T)" />
     <meta property="og:image" content="http://www.buffalounconference.com/assets/img/BuffaloUnconference.jpg" />
 </head>
 
@@ -51,8 +51,7 @@
 								<li><a href="#sponsors">Sponsors</a></li>
                                 <li><a href="#venue">Contact</a></li>
                                 
-                                <!--
-                                <li ng-hide="isLoggedIn"><a id="register-button" href="" ng-if="!maxUserLimitReached" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-disabled="true">Register</a></li>
+                                <!--<li ng-hide="isLoggedIn"><a id="register-button" href="" ng-if="!maxUserLimitReached" data-target="#registerModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-disabled="true">Register</a></li>
 								<li ng-hide="!isLoggedIn" ng-if="isTwitterLogin && false"><a id="modify-twit-button" href="" data-target="#editTwitTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Talk</a></li>
                                 <li ng-hide="!isLoggedIn" ng-if="!isTwitterLogin && false"><a id="modify-simple-button" href="" data-target="#editSimpleTalkModal" data-backdrop="static" data-keyboard="false"  data-toggle="modal" ng-click="editTalk()">Edit Info</a></li> -->
 							</ul>
@@ -68,13 +67,14 @@
 	<div class="container" ng-controller="AppController">
 		<div class="row jumbotron">
 			<div class="span12 text-center">
-				<p class="info">Sponsored by AT&amp;T</p>
+				<p class="info">Powered by AT&amp;T</p>
 				<h1>April 16, 2016</h1>
 				<h2>10:00 AM - 4:00 PM<br>
 					VCAMP<br>
+                    Free Admission
 				</h2>
 				<p class="alert alert-primary" ng-if="maxUserLimitReached"><b>Buffalo Unconference has reached capacity! Please stop by next year.</b></p>
-				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached" ng-disabled="true">Registration coming soon</a>
+				<a href="" class="btn btn-lg btn-primary" ng-hide="isLoggedIn" ng-click="openRegisterModal()" ng-if="!maxUserLimitReached" ng-disabled="true">REGISTRATION COMING SOON</a>
 			</div><!-- end span12 --> 
 		</div><!-- end row --> 
 	</div>
@@ -274,7 +274,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12 hero-unit text-center">
-				<h2>Sponsored by AT&amp;T</h2>
+				<h2>Powered by AT&amp;T</h2>
 			</div>
 			<div class="span12 text-center">
 				<a href="http://www.att.com/" target="_blank"><img src="assets/img/sponsors/att.jpg" height="250" width="250" alt="AT&T"></a>
@@ -288,7 +288,7 @@
 				<a href="http://www.vcamp.co/#/" target="_blank"><img src="assets/img/sponsors/vcamp.png" alt="VCAMP" class="sponsor-logo"></a>
 			</div>
 			<div class="span4 text-center">
-				<a href="http://infotechniagara.org/" target="_blank"><img src="assets/img/sponsors/infotechniagara.png" alt="Infotech Niagara" class="sponsor-logo"></a>
+				<a href="http://infotechniagara.org/" target="_blank"><img src="assets/img/sponsors/InfoTechWNY-Logo.jpg" alt="Infotech Niagara" class="sponsor-logo"></a>
 			</div>
             <div class="span4 text-center">
 				<a href="https://www.startupgrind.com/buffalo/" target="_blank"><img src="assets/img/sponsors/startupgrind.png" alt="Startup Grind Buffalo" class="sponsor-logo"></a>
@@ -411,8 +411,9 @@
         </div>
         <div class="modal-body">
             <div class="span3">
-                <h3>Connect with Twitter</h3>
-                <button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> Connect</button>
+                <h3>Connect with</h3>
+                <button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> twitter</button>
+                <button id="register-facebook-button" class="btn btn-md" ng-click="registerFacebookPopup()"><i class="fa fa-facebook"></i> facebook</button>
             </div>
             <div class="span1">
                 - or -
