@@ -5,7 +5,7 @@ angular
     'firebase',
     'services',
     'header-controller',
-    'modify-twit-user-controller',
+    'modify-social-media-user-controller',
     'modify-simple-user-controller',
     'attendee-controller',
     'register-controller',

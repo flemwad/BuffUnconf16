@@ -14,7 +14,8 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, UserServi
     
     $scope.isLoggedIn = $global.isLoggedIn;
     $scope.maxUserLimitReached = false;
-    $scope.isTwitterLogin = $global.isTwitterLogin;
+    $scope.isTwitterLogin = $global.isTwitterLogin; 
+    $scope.isFacebookLogin = $global.isFacebookLogin; 
     
     $rootScope.$on('maxLimitReached', function () {
         $scope.maxUserLimitReached = $global.maxUserLimitReached;
@@ -32,15 +33,17 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, UserServi
             //$rootScope.$broadcast('firstLoadModal');
             $scope.editTalk();
             
-            if($scope.isTwitterLogin) {
+            if($scope.isTwitterLogin || $scope.isFacebookLogin) {
+                
                 $timeout(function() {
-                    $("#modify-twit-button")[0].click();
-                }, 0);
+                    $("#modify-social-media-button")[0].click();
+                    //angular.element(document.querySelector('#modify-social-media-button')).click();    
+                }, 250);
             }
             else {
                 $timeout(function() {
                     $("#modify-simple-button")[0].click();
-                }, 0);
+                }, 250);
             }
         },
         function () { //fail callback
@@ -48,8 +51,12 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, UserServi
     };
     
     $scope.editTalk = function () {
-        if($scope.isTwitterLogin) $rootScope.$broadcast('editTwitTalkClicked');
-        else $rootScope.$broadcast('editSimpleTalkClicked');
+        if($scope.isTwitterLogin || $scope.isFacebookLogin) {
+            $rootScope.$broadcast('editSocialMediaClicked');
+        }
+        else {
+            $rootScope.$broadcast('editSimpleTalkClicked');
+        }
     };
     
     if($scope.isLoggedIn) $scope.initModifyModal();

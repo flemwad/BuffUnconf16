@@ -1,8 +1,8 @@
 'use strict'
 
 angular
-.module('modify-twit-user-controller', [])
-.controller('ModifyTwitUserController',
+.module('modify-social-media-user-controller', [])
+.controller('ModifySocialMediaUserController',
 [   '$scope',
     '$firebase',
     '$global',
@@ -13,14 +13,13 @@ function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
 
     $scope.userObj = null;
     $scope.talkObj = null;
+    $scope.isFacebookLogin = $global.isFacebookLogin;
     
-    $rootScope.$on('editTwitTalkClicked', function () {
+    $rootScope.$on('editSocialMediaClicked', function () {
         $scope.init();
     });
     
-    $scope.init = function () {
-        console.dir('open twit');
-        
+    $scope.init = function () {        
         $scope.userObj = UserService($global.uid);
         
         $scope.userObj.$loaded().then(function() { //success callback
@@ -43,7 +42,7 @@ function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
         }
     };
     
-    $scope.saveTwit = function () {
+    $scope.saveSocialMedia = function () {
         if(angular.isObject($scope.userObj) && angular.isObject($scope.talkObj) && $scope.talkObj.topic !== '' && $scope.talkObj.description !== '') {
             $scope.talkObj.attendOnly = false;
             $scope.talkObj.submitted = true;
