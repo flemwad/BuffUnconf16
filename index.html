@@ -395,7 +395,6 @@
 </footer>    
 <!-- end Document --> 
     
-
     <!-- Edit Social Media User Modal -->
     <div id="editSocialMediaModal" class="modal hide fade" aria-hidden="true" ng-controller="ModifySocialMediaUserController">
         <div class="modal-header">
@@ -444,8 +443,8 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left" ng-disabled="modSocialMediaUserForm.$invalid && !modSocialMediaForm.$invalid">Attend Only</button>
-            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveSocialMedia()" ng-disabled="modSocialMediaForm.$invalid && modSocialMediaUserForm.$invalid">Talk</button>
+            <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left" ng-disabled="modSocialMediaUserForm.$invalid">Attend Only</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveSocialMedia()" ng-disabled="modSocialMediaForm.$invalid">Talk</button>
         </div>
     </div>
     <!-- Edit Social Media User Modal -->
@@ -461,7 +460,7 @@
             <div class="span3">
                 <h3>Connect with</h3>
                 <button id="register-facebook-button" class="btn btn-md" style="background-color:#3b5998; border-width:0;" ng-click="registerFacebookPopup()"><i class="fa fa-facebook"></i> facebook</button>
-                <button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> twitter</button>
+                <!--<button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> twitter</button>-->
             </div>
             <div class="span1">
                 
