@@ -24,7 +24,8 @@ angular
     if(this.isLoggedIn) {
         this.uid = this.loginObj.uid
         this.isTwitterLogin = this.uid.indexOf('twitter') > -1;
-        this.isSimpleLogin = this.uid.indexOf('simple') > -1;
+        this.isFacebookLogin = this.uid.indexOf('facebook') > -1;
+        this.isSimpleLogin = (!this.isTwitterLogin && !this.isFacebookLogin) ? true : false;
     }
     
     this.userRef.once('value', function(snapshot) {
