@@ -15,6 +15,8 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, AttendeeS
     $scope.attendees = null;
     $scope.isLoggedIn = $global.isLoggedIn;
     $scope.isTwitterLogin = $global.isTwitterLogin;
+    $scope.isFacebookLogin = $global.isFacebookLogin;
+    $scope.isSimpleLogin = $global.isSimpleLogin;
     $scope.userCount = 0;
     $scope.speakerCount = 0;
     $scope.attendeeCount = 0;
@@ -44,9 +46,9 @@ function ($scope, $firebase, $global, $timeout, $rootScope, $location, AttendeeS
     $scope.openEditProfile = function () {
         //tell our HeaderController the user clicked Edit Profile Cog in the attendee section
         
-        if($scope.isTwitterLogin) {
+        if($scope.isTwitterLogin || $scope.isFacebookLogin) {
             $timeout(function() {
-                $("#modify-twit-button")[0].click();
+                $("#modify-social-media-button")[0].click();
             }, 0);
         }
         else {
