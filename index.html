@@ -126,7 +126,7 @@
 									<div class="card-title">
                                     	<a href="#" class="close" onclick="closeCard(); return false;">x</a>
 										<h4>{{attendee.displayName}}</h4>
-										<p><a ng-href="{{attendee.url}}" target="_blank">Facebook</a><span ng-show="attendee.url"> &bull;</span></p>
+										<p><a ng-href="{{attendee.url}}" target="_blank">Facebook</a><span ng-show="attendee.url"></span></p>
 										<p>{{attendee.description}}</p>
 									</div>
 									<div class="card-body">
@@ -398,15 +398,22 @@
 
     <!-- Edit Social Media User Modal -->
     <div id="editSocialMediaModal" class="modal hide fade" aria-hidden="true" ng-controller="ModifySocialMediaUserController">
-        <div class="modal-header">
-            <h3 id="myModalLabel">MODIFY YOUR TALK</h3>
-        </div>
         <div class="modal-body">
             <div class="container">
                 <div class="row">
+                    <div class="span3" ng-if="isTwitterLogin && !isTwitEmailOptedIn">
+                        <h3>Email</h3>
+                        <ng-form name="twitEmailForm" class="row-border" novalidate>
+                            <div class="form-group">
+                                <input type="email" ng-model="userObj.email" class="form-control" placeholder="e.g boboblaw@gmail.com" ng-required="true" />
+                                <div ng-show="userObj.email.length > 0"><i class="fa fa-smile-o"></i> Thanks!</div>
+                            </div>
+                            <span style="font-size:10px; font-weight:bold;">We'd like to keep you informed with event details and provide important information for those who want to speak.</span>
+                        </ng-form>
+                    </div>
                     <div class="span3" ng-if="isFacebookLogin">
                         <h3>USER INFO</h3>
-                        <ng-form name="modSocialMediaUserForm" class="row-border" novalidate>
+                        <ng-form name="facebookForm" class="row-border" novalidate>
                             <div class="form-group">
                                 <label class="control-label">* Description</label>
                                 <textarea class="form-control" ng-model="userObj.description" rows="5" placeholder="A short description of yourself" required></textarea>
@@ -444,12 +451,12 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left" ng-disabled="modSocialMediaUserForm.$invalid">Attend Only</button>
+            <button type="submit" ng-if="isFacebookLogin" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left" ng-disabled="userObj.description == '' || userObj.description == null">Attend Only</button>
+            <button type="submit" ng-if="isTwitterLogin" class="btn btn-info" data-dismiss="modal" ng-click="attendOnly()" style="pull-left" ng-disabled="userObj.email == '' || userObj.email == null">Attend Only</button>
             <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="saveSocialMedia()" ng-disabled="modSocialMediaForm.$invalid">Talk</button>
         </div>
     </div>
     <!-- Edit Social Media User Modal -->
-    
     
     <!-- Register Modal -->
     <div id="registerModal" class="modal hide fade" aria-hidden="true" ng-controller="RegisterController">
@@ -461,7 +468,7 @@
             <div class="span3">
                 <h3>Connect with</h3>
                 <button id="register-facebook-button" class="btn btn-md" style="background-color:#3b5998; border-width:0;" ng-click="registerFacebookPopup()"><i class="fa fa-facebook"></i> facebook</button>
-                <!--<button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> twitter</button>-->
+                <button id="register-twitter-button" class="btn btn-md btn-info" ng-click="registerTwitterPopup()"><i class="fa fa-twitter"></i> twitter</button>
             </div>
             <div class="span1">
                 
@@ -547,7 +554,6 @@
         </div>
     </div>
     <!-- Edit Simple User Modal -->
-    
     
 <!-- javascripts --> 
 <!-- Placed at the end of the document so the pages load faster --> 

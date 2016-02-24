@@ -13,7 +13,11 @@ function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
 
     $scope.userObj = null;
     $scope.talkObj = null;
+    $scope.isTwitEmailOptedIn = $global.isOptedInForEmail;
     $scope.isFacebookLogin = $global.isFacebookLogin;
+    $scope.isTwitterLogin = $global.isTwitterLogin;
+    $scope.isSimpleLogin = $global.isSimpleLogin;
+    $scope.isLoggedIn = $global.isLoggedIn;
     
     $rootScope.$on('editSocialMediaClicked', function () {
         $scope.init();
@@ -48,7 +52,6 @@ function ($scope, $firebase, $global, $timeout, $rootScope, UserService) {
             $scope.talkObj.submitted = true;
             $scope.userObj.$save();
         }
-        
     };
     
 }]);
