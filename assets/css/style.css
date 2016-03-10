@@ -1116,22 +1116,24 @@ a.instagram:hover {
 	padding: 20px 15px;
 }
 /* Sponsors Section */
+#sponsors .span4 {
+	line-height: 160px;
+	height: 160px;
+}
+@media screen and (max-width: 768px) {
+	#sponsors .xs-hidden {
+		display: none;
+	}
+}
 .cool-pictures {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	-moz-opacity: 1;
-	-khtml-opacity: 1;
 	opacity: 1;
-	-moz-transition: all 200ms ease;
-	-webkit-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-	width: 60%;
-	padding: 20px 0;
+	vertical-align: middle;
+	height: auto;
+	max-height: 120px;
+	width: auto;
+	max-width: 80%;
 }
 .cool-pictures:hover {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	-moz-opacity: 0.5;
-	-khtml-opacity: 0.5;
 	opacity: 0.5;
 }
 /* News Section */
