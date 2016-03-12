@@ -607,6 +607,8 @@ hr.divider-short {
 
 .dudes img {
 	border: 0;
+    max-width: 48px;
+    max-height: 48px;
 }
 
 .dudes i {
